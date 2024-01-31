@@ -7,7 +7,9 @@ import Footer from './components/pages/Footer/Footer.tsx';
 function App() {
   return (
     <>
-      <Button type={ButtonType.CTA}>Login</Button>
+    <div style={{padding: "32px"}}>
+    <Button type={ButtonType.BIG_CTA}>Login</Button>
+    </div>
       <Header />
       <Main />
       <Footer />

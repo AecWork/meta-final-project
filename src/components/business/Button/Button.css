@@ -13,6 +13,51 @@ button {
     -moz-osx-font-smoothing: grayscale;
 
     transition: all ease 600ms;
+
+    position: relative;
+
+    cursor: pointer;
+}
+
+.container {
+    --swew-angle: 45deg;
+    --extrude-distance: -0.25rem;
+    display: inline-block;
+    vertical-align: text-top;
+    position: relative;
+}
+
+.container::after, .container::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    transition: all ease 600ms;
+}
+
+.container::after {
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: abs(var(--extrude-distance));
+    background-color: rgba(35,35,35,1);
+}
+
+.container::before {
+    top: 0px;
+    right: 0px;
+    width: abs(var(--extrude-distance));
+    height: 100%;
+    background-color: rgba(35,35,35,1);
+}
+
+.container:hover::after {
+    left: 2.5px;
+    transform: skewX(var(--swew-angle)) translateX(var(--extrude-distance));
+}
+
+.container:hover::before {
+    top: 2.5px;
+    transform: skewY(var(--swew-angle)) translateY(var(--extrude-distance));
 }
 
 button.link {
@@ -21,7 +66,7 @@ button.link {
 
 button.default {
     background-color: var(--LL-main);
-    border: 1px solid var(--LL-black);
+    border: 2px solid var(--LL-black);
 }
 
 button.CTA {
@@ -34,5 +79,5 @@ button.CTA.big {
 }
 
 button:hover {
-    transform: translate(-10%, -10%);
+    transform: translate(var(--extrude-distance), var(--extrude-distance));
 }

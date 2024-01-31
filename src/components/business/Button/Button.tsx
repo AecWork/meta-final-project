@@ -25,7 +25,9 @@ const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.DEFAUL
   }, [type])
 
   return (
-    <button className={`${buttonTypeStyle} text-Base`}>{children}</button>
+    <div className='container'>
+      <button className={`${buttonTypeStyle} text-Base`}>{children}</button>
+    </div>
   )
 }
 
