@@ -1,0 +1,38 @@
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    font-family: "DM Sans";
+
+    padding: calc(1rem / 2) calc(1rem) calc(1rem / 2) calc(1rem);
+
+    font-family: "DM Serif Display", serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    transition: all ease 600ms;
+}
+
+button.link {
+    padding: 0;
+}
+
+button.default {
+    background-color: var(--LL-main);
+    border: 1px solid var(--LL-black);
+}
+
+button.CTA {
+    background-color: var(--LL-black);
+    color: var(--LL-main);
+}
+
+button.CTA.big {
+    width: 100%;
+}
+
+button:hover {
+    transform: translate(-10%, -10%);
+}

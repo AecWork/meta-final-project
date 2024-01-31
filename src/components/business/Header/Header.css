@@ -1,0 +1,14 @@
+header {
+    margin-left: var(--side-margin);
+    margin-right: var(--side-margin);
+
+    background-color: var(--LL-Main);
+
+    display: flex;
+    padding-top: calc(var(--side-margin) / 2);
+    padding-bottom: calc(var(--side-margin) / 2);
+}
+
+header.bordered {
+    border-bottom: 1px solid var(--LL-Black);
+}
