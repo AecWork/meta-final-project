@@ -34,11 +34,11 @@
   --LL-grey: #7C7C7C;
 
   --Grid-cols: 12;
-  --Grid-gutter: 24px;
-  --Grid-minMargins: 64px;
-  --Grid-maxWidth: 1200px;
+  --Grid-gutter: 1.5rem;
+  --Grid-minMargins: 4rem;
+  --Grid-maxWidth: 75rem;
 
-  --side-margin: 64px;
+  --side-margin: 4rem;
 
   --desktop-bp: 1200px;
   --tablet-bp: 768px;
@@ -126,4 +126,8 @@ h6 {
 
 .text-XS {
   font-size: 0.5625rem;
+}
+
+ul {
+  list-style: none;
 }

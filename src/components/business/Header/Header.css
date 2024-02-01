@@ -1,14 +1,46 @@
 header {
-    margin-left: var(--side-margin);
-    margin-right: var(--side-margin);
-
     background-color: var(--LL-Main);
 
     display: flex;
-    padding-top: calc(var(--side-margin) / 2);
-    padding-bottom: calc(var(--side-margin) / 2);
+    justify-content: space-between;
+    align-items: center;
+
+    padding: calc(var(--side-margin) / 2) var(--side-margin);
 }
 
 header.bordered {
     border-bottom: 1px solid var(--LL-Black);
+}
+
+header > section {
+    display: flex;
+}
+
+header > section > *:not(:last-child) {
+    display: flex;
+    margin-right: 2rem;
+}
+
+nav > ul {
+    display: flex;
+}
+
+nav > ul > *:not(:last-child) {
+    display: flex;
+    margin-right: 1.5rem;
+}
+
+header > img {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    text-align: center;
+    z-index: 1;
+}
+
+@media (max-width: 1200px) {
+    header > img {
+        display: none;
+    }
 }

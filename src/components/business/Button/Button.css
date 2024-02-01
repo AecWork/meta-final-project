@@ -35,38 +35,58 @@ button {
 }
 
 .container::after {
-    bottom: 0px;
-    left: 0px;
+    bottom: 0;
+    left: 0;
     width: 100%;
     height: abs(var(--extrude-distance));
     background-color: rgba(35,35,35,1);
 }
 
 .container::before {
-    top: 0px;
-    right: 0px;
+    top: 0;
+    right: 0;
     width: abs(var(--extrude-distance));
     height: 100%;
     background-color: rgba(35,35,35,1);
 }
 
 .container:hover::after {
-    left: 2.5px;
+    left: 0.125rem;
     transform: skewX(var(--swew-angle)) translateX(var(--extrude-distance));
 }
 
 .container:hover::before {
-    top: 2.5px;
+    top: 0.125rem;
     transform: skewY(var(--swew-angle)) translateY(var(--extrude-distance));
 }
 
 button.link {
     padding: 0;
+    background-color: transparent;
+}
+
+button.link::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -0.1rem;
+    left: 0;
+    border-bottom: 0.125rem solid var(--LL-black);
+
+    transform: scale3d(0, 1, 1);
+    transform-origin: center right;
+    transition: transform 600ms ease;
+}
+
+button.link:hover::after {
+    transform: scale3d(1, 1, 1);
+    transform-origin: center left;
 }
 
 button.default {
     background-color: var(--LL-main);
-    border: 2px solid var(--LL-black);
+    border: 0.125rem solid var(--LL-black);
 }
 
 button.CTA {

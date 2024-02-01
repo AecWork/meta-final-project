@@ -9,13 +9,13 @@ export enum ButtonType {
 }
 
 interface IProps {
-  children: string | JSX.Element
+  children?: string | JSX.Element
   type?: ButtonType
 }
 
 const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.DEFAULT}) => {
 
-  const buttonTypeStyle = React.useMemo(() => {
+  const buttonTypeStyle: string = React.useMemo(() => {
     switch (type) {
       case ButtonType.LINK: return 'link';
       case ButtonType.DEFAULT: return 'default';
@@ -24,9 +24,15 @@ const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.DEFAUL
     }
   }, [type])
 
-  return (
+  const button: JSX.Element = React.useMemo(() =>
+    <button className={`${buttonTypeStyle} text-Base`}>{children || "Button"}</button>
+  , [children, buttonTypeStyle]);
+
+  return type === ButtonType.LINK
+  ? button
+  : (
     <div className='container'>
-      <button className={`${buttonTypeStyle} text-Base`}>{children}</button>
+      { button }
     </div>
   )
 }
