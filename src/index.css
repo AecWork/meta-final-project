@@ -47,6 +47,7 @@
 
 body {
   background-color: var(--LL-main);
+  margin: 0 var(--side-margin);
 }
 
 html {
@@ -71,7 +72,9 @@ code {
 
 h1{
   font-family: "Rosalia";
-  font-size: 8.625rem;
+  font-size: clamp(1rem, 10vw, 14.5496rem);/*14.5496rem;8.625rem;*/
+  word-break: keep-all;
+  white-space: nowrap;
 }
 
 h2 {
@@ -100,7 +103,7 @@ h6 {
 }
 
 .uppercase {
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .italics {
@@ -108,11 +111,11 @@ h6 {
 }
 
 .text-XL {
-  font-size: 1,6875rem;
+  font-size: 1.6875rem;
 }
 
 .text-L {
-  font-size: 1,3125rem;
+  font-size: 1.3125rem;
 }
 
 .text-Base {

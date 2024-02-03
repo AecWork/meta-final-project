@@ -5,7 +5,7 @@ header {
     justify-content: space-between;
     align-items: center;
 
-    padding: calc(var(--side-margin) / 2) var(--side-margin);
+    padding: calc(var(--side-margin) / 2) 0;
 }
 
 header.bordered {
@@ -34,6 +34,7 @@ header > img {
     position: absolute;
     left: 0;
     right: 0;
+    top: -3rem;
     margin: auto;
     text-align: center;
     z-index: 1;
