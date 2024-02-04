@@ -27,7 +27,7 @@
   src: url("./assets/fonts/DmSerifDisplay/DMSerifDisplay-Italic.ttf") format("truetype");
 }
 
-:root {
+html {
   /* System Colors */
   --LL-main: #FFF6EF;
   --LL-black: #232323;
@@ -43,11 +43,8 @@
   --desktop-bp: 1200px;
   --tablet-bp: 768px;
   --phone-bp: 600px;
-}
 
-body {
-  background-color: var(--LL-main);
-  margin: 0 var(--side-margin);
+  --easing: cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 html {
@@ -57,6 +54,16 @@ html {
   font-family: "DM Serif Display", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--LL-main);
+  overflow: hidden;
+  /* margin: 0 var(--side-margin); */
+}
+
+#root {
+  position: relative;
 }
 
 code {
@@ -133,4 +140,10 @@ h6 {
 
 ul {
   list-style: none;
+}
+
+#initial-loader {
+  background-color: var(--LL-main);
+  width: 100vw;
+  height: 100vh;
 }

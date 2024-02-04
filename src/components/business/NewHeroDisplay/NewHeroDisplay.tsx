@@ -25,7 +25,6 @@ const NewHeroDisplay: React.FC = () => {
     }, [displayRef?.current?.offsetHeight]);
 
     React.useEffect(() => {
-        console.log(displayHeight);
         const unquantifiedHeight = (windowDimensions.height - displayHeight) - TILE_HEIGHT - headerHeight;
         const unquantifiedWidth = windowDimensions.width - 64*2;
 

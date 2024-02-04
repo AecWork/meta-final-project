@@ -1,0 +1,35 @@
+.splash-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+}
+
+.slider {
+    background-color: var(--LL-black);
+    transform-origin: center top;
+    transition: transform var(--easing);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splash-screen.opacity-fade {
+    background-color: var(--LL-main);
+}
+
+.opacity-fade {
+    opacity: 1;
+    transition: opacity 1s var(--easing);
+}
+
+.faded {
+    opacity: 0;
+}
+
+.hidden {
+    transform: scaleY(0);
+}
