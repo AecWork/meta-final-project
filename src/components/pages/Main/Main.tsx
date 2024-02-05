@@ -1,10 +1,10 @@
 import React from 'react'
 import './Main.css';
-import NewHeroDisplay from '../../business/NewHeroDisplay/NewHeroDisplay.tsx';
+import HeroDisplay from './HeroDisplay/HeroDisplay.tsx';
 
 const Main: React.FC = () => {
   return (
-    <article><NewHeroDisplay /></article>
+    <article><HeroDisplay /></article>
   )
 }
 

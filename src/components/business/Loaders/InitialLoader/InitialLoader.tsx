@@ -10,7 +10,7 @@ const InitialLoader: React.FC = () => {
             { Array.from(WORD).map((char, index) =>
                 <span
                     style={{ '--i': index } as React.CSSProperties}
-                    key={char}
+                    key={index}
                     className='fancy-char'
                 >
                     { char.toUpperCase() }

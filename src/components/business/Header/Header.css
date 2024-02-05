@@ -45,3 +45,12 @@ header > img {
         display: none;
     }
 }
+
+@media (max-width: 768px) {
+    header {
+        padding: var(--side-margin);
+    }
+    nav {
+        display: none;
+    }
+}
