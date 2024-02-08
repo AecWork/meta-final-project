@@ -25,9 +25,6 @@ const HeroDisplay: React.FC = () => {
         <h1 className='uppercase'>Lemon</h1>
       </div>
     </section>
-
-    // <section style={{height: `calc(100vh - ${headerHeight}px - 64px)`}} className='hero-container'>
-    // </section>
   )
 }
 
