@@ -33,8 +33,8 @@
 
     background-color: var(--LL-main);
 
-    /* border-radius: inherit; */
-    border: 2px solid var(--LL-black);
+    border-radius: inherit;
+    /* border: 2px solid var(--LL-black); */
 
     box-shadow: 0 0 96px 16px var(--shadow-color);
 
