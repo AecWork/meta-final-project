@@ -13,7 +13,6 @@ const HeroDisplay: React.FC = () => {
       className='hero-container'
     >
       <Parallax
-        blur={0}
         className='hero-background-container'
         bgImage={Mosaic}
         bgImageAlt='Mosaic'

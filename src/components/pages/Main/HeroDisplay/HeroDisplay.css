@@ -1,7 +1,6 @@
 .hero-container {
     --shadow-color: rgba(35, 35, 35, 0.3);
-    width: 100vw;
-    margin: 0 var(--side-margin);
+    width: 100%;
     border-radius: 1rem;
     box-shadow: inset 0 0 96px 16px var(--shadow-color);
     position: relative;

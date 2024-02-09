@@ -1,0 +1,17 @@
+.archway-section {
+    height: 100vh;
+    display: flex;
+    justify-content: flex-end;
+    padding-top: var(--side-margin);
+}
+
+.archways {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.archways > *:not(:last-child) {
+    margin-right: 3rem;
+}
