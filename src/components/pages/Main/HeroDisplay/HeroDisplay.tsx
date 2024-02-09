@@ -9,7 +9,7 @@ const HeroDisplay: React.FC = () => {
 
   return (
     <section
-      style={{height: `calc(100vh - ${headerHeight}px - 64px)`}}
+      style={{height: `calc(100vh - ${headerHeight}px - 64px)`, marginTop: headerHeight}}
       className='hero-container'
     >
       <Parallax

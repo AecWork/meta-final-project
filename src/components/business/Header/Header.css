@@ -1,11 +1,15 @@
 header {
-    background-color: var(--LL-Main);
+    background-color: var(--LL-main);
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     padding: calc(var(--side-margin) / 2) var(--side-margin);
+
+    position: fixed;
+    width: 100%;
+    z-index: 9999;
 }
 
 header.bordered {

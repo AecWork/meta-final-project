@@ -3,14 +3,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 90%;
+    height: 82.5%;
     position: relative;
     transition: all 1000ms var(--easing);
     cursor: pointer;
 }
 
 .archway-option:hover {
-    height: 95%;
+    height: 87.5%;
 }
 
 .archway-option > *:not(:last-child) {
