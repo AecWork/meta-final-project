@@ -1,5 +1,5 @@
 import React from 'react';
-import { EllipsePath } from './EllipsePath.tsx';
+import ReactCurvedText from 'react-curved-text';
 
 export namespace ArchwaysDictionary {
 
@@ -9,16 +9,29 @@ export namespace ArchwaysDictionary {
         RESERVE = 'reservations'
     }
 
-    export function generateTitle(option: ArchwayOptionType): JSX.Element {
+    export function generateTitle(option: ArchwayOptionType, width: number): JSX.Element {
+        const padding = 8;
+        const realWidthCoef = width / 2;
         return (
-            <svg className='archway-title'>
-                { EllipsePath }
-                <text font-family="Rosalía" className='uppercase' font-size="30">
-                    <textPath href="#arc" startOffset="50%" text-anchor="middle">
-                        <tspan dy="-5">{ option }</tspan>
-                    </textPath>
-                </text>
-            </svg>
+            <ReactCurvedText
+                width={width}
+                height={padding}
+                cx={realWidthCoef}
+                cy={realWidthCoef}
+                rx={realWidthCoef + padding}
+                ry={realWidthCoef}
+                startOffset={'25%'}
+                reversed={true}
+                text={option}
+                textProps={{
+                    "text-anchor": "middle",
+                    class: 'archway-title uppercase',
+                }}
+                textPathProps={null}
+                tspanProps={null}
+                ellipseProps={null}
+                svgProps={{style: {overflow: 'visible'}}}
+            />
         )
     }
 }

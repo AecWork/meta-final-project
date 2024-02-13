@@ -57,12 +57,6 @@
 }
 
 .archway-title {
-    width: 100%;
-    height: 0;
-    overflow: visible;
-}
-
-.archway-title > text {
     font-family: "Rosalia";
     font-size: 2.9375rem;
     display: flex;

@@ -2,6 +2,7 @@ import React from 'react'
 import './ArchwayOption.css'
 import { Parallax } from 'react-parallax'
 import { ArchwaysDictionary as AD } from '../dictionary/ArchwaysDictionary.tsx';
+import useElementDimensions from '../../../../../hooks/useElementDimensions/useElementDimensions.tsx';
 
 interface IProps {
   bgImageUrl: string
@@ -14,9 +15,11 @@ const ArchwayOption: React.FC<IProps> = ({
   option = AD.ArchwayOptionType.MENU,
   onClick = () => console.log('a')
 }) => {
+  const { dimensions, ref } = useElementDimensions();
+
   return (
-    <li className='archway-option'>
-      { AD.generateTitle(option) }
+    <li className='archway-option' ref={ref}>
+      { AD.generateTitle(option, dimensions.width) }
       <Parallax
         className='archway'
         contentClassName='shadow'
