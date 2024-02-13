@@ -54,6 +54,7 @@ html {
   font-family: "DM Serif Display", serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 @media (max-width: 1200px) {

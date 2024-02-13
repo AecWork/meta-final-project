@@ -20,7 +20,7 @@ const SplashScreen: React.FC = () => {
             setTimeout(() => {
                 document.getElementsByTagName('body')[0].style.overflow = 'auto';
                 isTransitionEnded(true);
-            }, SLIDE_DELAY + SLIDE_DURATION + FADE_DELAY + FADE_DURATION);
+            }, SLIDE_DELAY + SLIDE_DURATION + FADE_DELAY + FADE_DURATION - 1000);
         }
 
         if (document.readyState === 'complete') {

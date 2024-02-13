@@ -14,9 +14,9 @@ export namespace ArchwaysDictionary {
         const realWidthCoef = width / 2;
         return (
             <ReactCurvedText
-                width={width}
+                width={realWidthCoef}
                 height={padding}
-                cx={realWidthCoef}
+                cx={realWidthCoef / 2}
                 cy={realWidthCoef}
                 rx={realWidthCoef + padding}
                 ry={realWidthCoef}
