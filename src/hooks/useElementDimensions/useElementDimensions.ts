@@ -1,5 +1,5 @@
 import React from 'react';
-import useEventListener from '../useEventListener/useEventListener.tsx';
+import useEventListener from '../useEventListener/useEventListener.ts';
 
 export interface Dimensions2D {
     width: number,

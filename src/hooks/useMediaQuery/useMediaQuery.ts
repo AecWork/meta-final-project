@@ -1,5 +1,5 @@
 import React from 'react';
-import useEventListener from '../useEventListener/useEventListener.tsx';
+import useEventListener from '../useEventListener/useEventListener.ts';
 import { DESKTOP_MIN_WIDTH, MOBILE_MAX_WIDTH } from '../../data/constants/constants.ts';
 
 interface MediaQueryState {

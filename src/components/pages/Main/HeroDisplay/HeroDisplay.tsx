@@ -1,9 +1,9 @@
 import React from 'react'
 import { Parallax } from 'react-parallax';
 import Mosaic from '../../../../assets/illustrations/mosaic4kpng.png';
-import useHeaderHeight from '../../../../hooks/useHeaderHeight/useHeaderHeight.tsx';
+import useHeaderHeight from '../../../../hooks/useHeaderHeight/useHeaderHeight.ts';
 import './HeroDisplay.css';
-import useMediaQuery from '../../../../hooks/useMediaQuery/useMediaQuery.tsx';
+import useMediaQuery from '../../../../hooks/useMediaQuery/useMediaQuery.ts';
 import { DESKTOP_SIDE_MARGINS, MOBILE_SIDE_MARGINS, TABLET_SIDE_MARGINS } from '../../../../data/constants/constants.ts';
 
 const HeroDisplay: React.FC = () => {

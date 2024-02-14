@@ -1,5 +1,5 @@
 import * as React from 'react';
-import useEventListener from '../useEventListener/useEventListener.tsx';
+import useEventListener from '../useEventListener/useEventListener.ts';
 
 const useHeaderHeight = (): number => {
     const [height, setHeight] = React.useState<number>(0);

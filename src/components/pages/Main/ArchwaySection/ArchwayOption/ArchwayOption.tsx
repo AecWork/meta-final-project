@@ -2,7 +2,7 @@ import React from 'react'
 import './ArchwayOption.css'
 import { Parallax } from 'react-parallax'
 import { ArchwaysDictionary as AD } from '../dictionary/ArchwaysDictionary.tsx';
-import useElementDimensions from '../../../../../hooks/useElementDimensions/useElementDimensions.tsx';
+import useElementDimensions from '../../../../../hooks/useElementDimensions/useElementDimensions.ts';
 
 interface IProps {
   bgImageUrl: string

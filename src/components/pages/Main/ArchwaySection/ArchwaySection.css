@@ -13,7 +13,7 @@
 }
 
 .archways > *:not(:last-child) {
-    margin-right: 3rem;
+    margin-right: 2rem;
     margin-bottom: 0;
 }
 
@@ -22,7 +22,6 @@
         height: unset;
         padding: var(--side-margin) 0 var(--side-margin) 0;
         margin-left: calc(var(--side-margin) * -1);
-        display: none;
     }
 
     .archways {
