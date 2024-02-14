@@ -105,26 +105,31 @@ h1{
 h2 {
   font-family: "Rosalia";
   font-size: 6.5625rem;
+  line-height: 1.2;
 }
 
 h3 {
   font-family: "Rosalia";
   font-size: 5rem;
+  line-height: 1.2;
 }
 
 h4 {
   font-family: "Rosalia";
   font-size: 3.8125rem;
+  line-height: 1.2;
 }
 
 h5 {
   font-family: "Rosalia";
   font-size: 2.9375rem;
+  line-height: 1.2;
 }
 
 h6 {
   font-family: "Rosalia";
   font-size: 2.25rem;
+  line-height: 1.2;
 }
 
 .uppercase {

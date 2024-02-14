@@ -1,20 +1,16 @@
 .archway-option {
-    width: calc(100% / 3);
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 92.5%;
+    height: 82.5%;
     position: relative;
     transition: all 1000ms var(--easing);
     cursor: pointer;
 }
 
 .archway-option:hover {
-    height: 95%;
-}
-
-.archway-option > *:not(:last-child) {
-    margin-bottom: 2rem;
+    height: 85%;
 }
 
 .archway {
@@ -70,6 +66,10 @@
     overflow: visible;
 }
 
+.archway-content {
+    display: none;
+}
+
 @media (max-width: 1200px) {
     .archway-title {
         font-size: calc(2.9375rem / 1.25);
@@ -78,20 +78,47 @@
 
 @media (max-width: 1000px) {
     .archway-option {
-        width: 100%;
-        height: 33vh;
+        flex-direction: row;
+        align-items: flex-start;
+        height: 100%;
+    }
+
+    .archway-content {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: space-between;
+        height: 100%;
+    }
+
+    .archway-content > div:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+    }
+
+    .archway-content span {
+        font-family: Rosalia;
+        line-height: 1.2;
+        font-size: 5rem;
+    }
+
+    .archway {
+        min-width: 25%;
+        max-width: 25%;
+        height: 100%;
+        margin-right: calc(var(--side-margin) / 1.5);
+    }
+
+    .archway, .shadow {
+        border-bottom-left-radius: 6rem;
     }
 
     .archway > img {
         width: 100% !important;
-        object-fit: fill;
-    }
-
-    .archway, .shadow {
-        border-top-right-radius: 16rem;
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 16rem;
+        height: 100vh !important;
+        object-fit: cover;
     }
 
     .shadow {
@@ -100,7 +127,7 @@
     }
 
     .archway-option:hover {
-        height: 33vh;
+        height: 100%;
     }
 
     .archway-option:hover .shadow {
@@ -119,5 +146,18 @@
     }
     nav {
         display: none;
+    }
+
+    .archway {
+        min-width: 25%;
+        max-width: 25%;
+        height: 100%;
+        margin-right: calc(var(--side-margin));
+    }
+
+    .archway-content span {
+        font-family: Rosalia;
+        line-height: 1.2;
+        font-size: 3.8125rem;
     }
 }

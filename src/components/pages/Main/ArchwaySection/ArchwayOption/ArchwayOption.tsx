@@ -19,7 +19,7 @@ const ArchwayOption: React.FC<IProps> = ({
 
   return (
     <li className='archway-option' ref={ref}>
-      { AD.generateTitle(option, dimensions.width) }
+      { AD.generateArchedTitle(option, dimensions.width) }
       <Parallax
         className='archway'
         contentClassName='shadow'
@@ -27,6 +27,7 @@ const ArchwayOption: React.FC<IProps> = ({
         bgImageAlt='archway'
         strength={200}
       />
+      { AD.generateContent(option) }
     </li>
   )
 }

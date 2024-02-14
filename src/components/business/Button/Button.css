@@ -25,6 +25,7 @@ button {
     display: inline-block;
     vertical-align: text-top;
     position: relative;
+    width: 100%;
 }
 
 .container::after, .container::before {

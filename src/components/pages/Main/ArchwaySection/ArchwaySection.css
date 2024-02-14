@@ -20,8 +20,7 @@
 @media (max-width: 1000px) {
     .archway-section {
         height: unset;
-        padding: var(--side-margin) 0 var(--side-margin) 0;
-        margin-left: calc(var(--side-margin) * -1);
+        padding: calc(var(--side-margin) * 1.5) 0 var(--side-margin) 0;
     }
 
     .archways {
@@ -31,6 +30,13 @@
 
     .archways > *:not(:last-child) {
         margin-right: 0;
-        margin-bottom: 3rem;
+        margin-bottom: calc(var(--side-margin) * 1.5);
+    }
+}
+
+@media (max-width: 768px) {
+    .archways > *:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: calc(var(--side-margin) * 2);
     }
 }
