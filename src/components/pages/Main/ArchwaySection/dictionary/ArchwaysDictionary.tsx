@@ -24,13 +24,13 @@ export namespace ArchwaysDictionary {
                 reversed={true}
                 text={option}
                 textProps={{
-                    "text-anchor": "middle",
+                    'text-anchor': 'middle',
                     class: 'archway-title uppercase',
                 }}
                 textPathProps={null}
                 tspanProps={null}
                 ellipseProps={null}
-                svgProps={{style: {overflow: 'visible'}}}
+                svgProps={{class: 'archway-title-wrapper'}}
             />
         )
     }

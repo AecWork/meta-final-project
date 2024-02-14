@@ -3,14 +3,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 82.5%;
+    height: 90%;
     position: relative;
     transition: all 1000ms var(--easing);
     cursor: pointer;
 }
 
 .archway-option:hover {
-    height: 87.5%;
+    height: 92.5%;
 }
 
 .archway-option > *:not(:last-child) {
@@ -42,7 +42,7 @@
     height: 100%;
     --shadow-color: rgba(35, 35, 35, 0.7);
     --bg-color: rgba(35, 35, 35, 0);
-    box-shadow: inset 0 0 96px 16px var(--shadow-color);
+    box-shadow: inset 0 0 6rem 1rem var(--shadow-color);
     top: 0;
     left: 0;
     border-top-left-radius: 32rem;
@@ -56,6 +56,10 @@
     --bg-color: rgba(35, 35, 35, 0.3);
 }
 
+.archway-title-wrapper {
+    overflow: visible;
+}
+
 .archway-title {
     font-family: "Rosalia";
     font-size: 2.9375rem;
@@ -64,4 +68,56 @@
     justify-content: center;
     height: fit-content;
     overflow: visible;
+}
+
+@media (max-width: 1200px) {
+    .archway-title {
+        font-size: calc(2.9375rem / 1.25);
+    }
+}
+
+@media (max-width: 1000px) {
+    .archway-option {
+        width: 100%;
+        height: 33vh;
+    }
+
+    .archway > img {
+        width: 100% !important;
+        object-fit: fill;
+    }
+
+    .archway, .shadow {
+        border-top-right-radius: 16rem;
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 16rem;
+    }
+
+    .shadow {
+        --shadow-color: rgba(35, 35, 35, 0.5);
+        box-shadow: inset 0 0 3rem 0.5rem var(--shadow-color);
+    }
+
+    .archway-option:hover {
+        height: 33vh;
+    }
+
+    .archway-option:hover .shadow {
+        --shadow-color: rgba(35, 35, 35, 0.7);
+        --bg-color: rgba(35, 35, 35, 0);
+    }
+
+    .archway-title, .archway-title-wrapper {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        padding: var(--side-margin);
+    }
+    nav {
+        display: none;
+    }
 }

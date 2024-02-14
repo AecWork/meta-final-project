@@ -101,6 +101,6 @@ button.CTA.big {
     width: 100%;
 }
 
-button:hover {
+.container:hover button {
     transform: translate(var(--extrude-distance), var(--extrude-distance));
 }

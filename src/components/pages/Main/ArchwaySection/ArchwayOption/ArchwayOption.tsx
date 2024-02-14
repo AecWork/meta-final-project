@@ -25,7 +25,7 @@ const ArchwayOption: React.FC<IProps> = ({
         contentClassName='shadow'
         bgImage={bgImageUrl}
         bgImageAlt='archway'
-        strength={500}
+        strength={200}
       />
     </li>
   )
