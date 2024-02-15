@@ -1,0 +1,9 @@
+.star-rating-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.star-rating-list > li:not(:last-child) {
+    margin-right: 0.5rem;
+}

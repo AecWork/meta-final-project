@@ -1,0 +1,13 @@
+.ratings-container > *:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+.ratings-container > ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.ratings-container > ul > *:not(:last-child) {
+    margin-right: 4rem;
+}
