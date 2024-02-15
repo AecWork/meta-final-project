@@ -1,0 +1,5 @@
+footer {
+    background-color: var(--LL-black);
+    color: var(--LL-main);
+    padding: var(--side-margin);
+}
