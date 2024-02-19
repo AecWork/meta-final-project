@@ -81,6 +81,7 @@
         flex-direction: row;
         align-items: flex-start;
         height: 100%;
+        cursor: auto;
     }
 
     .archway-content {

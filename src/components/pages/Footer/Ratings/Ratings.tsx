@@ -6,15 +6,19 @@ import TripadvisorLogo from '../../../../assets/images/tripadvisor-logo.png';
 const Ratings: React.FC = () => {
   return (
     <section className='ratings-container'>
-        <ul>
+      <div className='animation-container'>
+        { [0, 1].map(() => (
+          <ul>
             <Rating />
             <Rating />
             <Rating />
             <Rating />
-        </ul>
-        <a href='https://www.tripadvisor.com/'>
-            <img src={TripadvisorLogo} alt='Tripadvisor' />
-        </a>
+          </ul>
+        ))}
+      </div>
+      <a href='https://www.tripadvisor.com/'>
+        <img src={TripadvisorLogo} alt='Tripadvisor' />
+      </a>
     </section>
   )
 }

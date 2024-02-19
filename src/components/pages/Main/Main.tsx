@@ -2,13 +2,15 @@ import React from 'react'
 import './Main.css';
 import HeroDisplay from './HeroDisplay/HeroDisplay.tsx';
 import ArchwaySection from './ArchwaySection/ArchwaySection.tsx';
+import Ratings from '../Footer/Ratings/Ratings.tsx';
 
 const Main: React.FC = () => {
   return (
-    <article className='main-content'>
+    <main className='main-content'>
       <HeroDisplay />
       <ArchwaySection />
-    </article>
+      <Ratings />
+    </main>
   )
 }
 

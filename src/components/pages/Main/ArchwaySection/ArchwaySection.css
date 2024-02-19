@@ -3,6 +3,9 @@
     display: flex;
     justify-content: flex-end;
     padding-top: var(--side-margin);
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
 }
 
 .archways {
@@ -19,8 +22,10 @@
 
 @media (max-width: 1000px) {
     .archway-section {
+        --padding: calc(var(--side-margin) * 2);
         height: unset;
-        padding: calc(var(--side-margin) * 1.5) 0 var(--side-margin) 0;
+        padding: var(--padding) 0 var(--padding) 0;
+        position: relative;
     }
 
     .archways {
