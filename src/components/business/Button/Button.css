@@ -19,6 +19,16 @@ button {
     cursor: pointer;
 }
 
+.dark {
+    --main-color: var(--LL-main);
+    --accent-color: var(--LL-black);
+}
+
+.light {
+    --main-color: var(--LL-black);
+    --accent-color: var(--LL-main);
+}
+
 .container {
     --swew-angle: 45deg;
     --extrude-distance: -0.25rem;
@@ -26,6 +36,11 @@ button {
     vertical-align: text-top;
     position: relative;
     width: 100%;
+}
+
+.container.dark {
+    --main-color: var(--LL-black);
+    --accent-color: var(--LL-main);
 }
 
 .container::after, .container::before {
@@ -39,7 +54,7 @@ button {
     left: 0;
     width: 100%;
     height: calc(-1 * var(--extrude-distance));
-    background-color: rgba(35,35,35,1);
+    background-color: var(--accent-color);
 }
 
 .container::before {
@@ -47,7 +62,7 @@ button {
     right: 0;
     width: calc(-1 * var(--extrude-distance));
     height: 100%;
-    background-color: rgba(35,35,35,1);
+    background-color: var(--accent-color);
 }
 
 .container:hover::after {
@@ -63,6 +78,7 @@ button {
 button.link {
     padding: 0;
     background-color: transparent;
+    color: var(--main-color);
 }
 
 button.link::after {
@@ -72,7 +88,7 @@ button.link::after {
     right: 0;
     bottom: -0.1rem;
     left: 0;
-    border-bottom: 0.125rem solid var(--LL-black);
+    border-bottom: 0.125rem solid var(--main-color);
 
     transform: scale3d(0, 1, 1);
     transform-origin: center right;
@@ -84,18 +100,13 @@ button.link:hover::after {
     transform-origin: center left;
 }
 
-button.default {
-    background-color: var(--LL-main);
-    border: 0.125rem solid var(--LL-black);
-}
-
 button.CTA {
-    background-color: var(--LL-black);
-    color: var(--LL-main);
+    background-color: var(--accent-color);
+    color: var(--main-color);
 }
 
-button.CTA:hover {
-    background-color: rgba(35,35,35,0.9);
+.container.light > button.CTA:hover {
+    opacity: 0.9;
 }
 
 button.CTA.big {

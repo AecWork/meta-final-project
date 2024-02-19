@@ -7,8 +7,8 @@ const Ratings: React.FC = () => {
   return (
     <section className='ratings-container'>
       <div className='animation-container'>
-        { [0, 1].map(() => (
-          <ul>
+        { [0, 1].map(index => (
+          <ul key={index}>
             <Rating />
             <Rating />
             <Rating />

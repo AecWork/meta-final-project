@@ -12,6 +12,7 @@
 
 .animation-container {
     display: flex;
+    overflow: hidden;
 }
 
 .animation-container > *:last-child {

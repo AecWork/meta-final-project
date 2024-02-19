@@ -12,7 +12,7 @@ const STARS = [...Array(MAX_STARS).keys()];
 const StarRating: React.FC<IProps> = ({ rating = 0 }) => {
   return (
     <ul className='star-rating-list'>
-        { STARS.map(i => <Star highlighted={(i + 1) <= rating}/>) }
+        { STARS.map(i => <Star key={i} highlighted={(i + 1) <= rating}/>) }
     </ul>
   )
 }

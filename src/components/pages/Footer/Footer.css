@@ -1,4 +1,6 @@
 footer {
-    border-top: 2px solid var(--LL-black);
-    padding: var(--side-margin);
+    background-color: var(--LL-black);
+    color: var(--LL-main);
+    z-index: 10;
+    margin: 0 calc(var(--side-margin) * -1);
 }

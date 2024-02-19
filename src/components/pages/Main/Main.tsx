@@ -3,6 +3,7 @@ import './Main.css';
 import HeroDisplay from './HeroDisplay/HeroDisplay.tsx';
 import ArchwaySection from './ArchwaySection/ArchwaySection.tsx';
 import Ratings from './Ratings/Ratings.tsx';
+import Footer from '../Footer/Footer.tsx';
 
 const Main: React.FC = () => {
   return (
@@ -10,6 +11,7 @@ const Main: React.FC = () => {
       <HeroDisplay />
       <ArchwaySection />
       <Ratings />
+      <Footer />
     </main>
   )
 }

@@ -12,6 +12,10 @@ header {
     z-index: 9997;
 }
 
+header.dark {
+    background-color: var(--LL-black);
+}
+
 header.bordered {
     border-bottom: 1px solid var(--LL-Black);
 }

@@ -3,10 +3,13 @@ import './Header.css';
 import Button, { ButtonType } from '../Button/Button.tsx';
 import Logo from '../../../assets/logo/LL-logo-black.svg';
 import CenterImg from '../../../assets/illustrations/Header-center-ill.svg';
+import { useTheme } from '../../../contexts/ThemeContext.tsx';
 
 const Header: React.FC = () => {
+  const themeContext = useTheme();
+
   return (
-    <header>
+    <header className={`${themeContext.theme}`}>
       <section>
         <img src={Logo} alt='LL Logo'/>
         <nav>

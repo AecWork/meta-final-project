@@ -1,5 +1,6 @@
 import React from 'react'
 import './Button.css';
+import { useTheme } from '../../../contexts/ThemeContext.tsx';
 
 export enum ButtonType {
   LINK,
@@ -13,7 +14,8 @@ interface IProps {
   type?: ButtonType
 }
 
-const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.DEFAULT}) => {
+const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.CTA}) => {
+  const { theme } = useTheme();
 
   const buttonTypeStyle: string = React.useMemo(() => {
     switch (type) {
@@ -28,10 +30,8 @@ const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.DEFAUL
     <button className={`${buttonTypeStyle} text-Base`}>{children || "Button"}</button>
   , [children, buttonTypeStyle]);
 
-  return type === ButtonType.LINK
-  ? button
-  : (
-    <div className='container'>
+  return (
+    <div className={`${type === ButtonType.LINK ? '' : 'container '}${theme}`}>
       { button }
     </div>
   )
