@@ -1,7 +1,7 @@
 .contact-card {
     --border-style: 1px solid var(--LL-main);
     border: var(--border-style);
-    height: 100%;
+    height: fit-content;
     width: 100%;
 
     display: flex;
@@ -30,7 +30,7 @@
 }
 
 .contact-card > .content {
-    height: 100%;
+    height: fit-content;
     width: 75%;
     border-bottom: var(--border-style);
     border-top: var(--border-style);
@@ -43,6 +43,10 @@
 .contact-card > .content > * {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
 }
 
 .contact-card > .content > *:first-child {
@@ -50,13 +54,45 @@
 }
 
 .contact-card > .content > .schedule {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-    padding-right: 1rem;
+    padding: 3rem 3rem 3rem 0;
 }
 
-.contact-card > .content > .schedule > *:not(:last-child) {
+.contact-card > .content > .location {
+    padding: 3rem 0 3rem 3rem;
+}
+
+.contact-card > .content > .location > .map-container {
+    height: 100%;
+    border: var(--border-style);
+    width: 100%;
+    background-image: url('../../../../assets/images/map.jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.contact-card > .content > .schedule > *:not(:last-child), .contact-card > .content > .location > a {
     margin-bottom: 2.5rem;
+}
+
+.contact-card > .content > .location > a {
+    color: var(--LL-main);
+}
+
+.contact-card > .row > .card-footer {
+    display: flex;
+    width: 75%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.contact-card > .row > .card-footer > .socials {
+    display: flex;
+}
+
+.contact-card > .row > .card-footer > .socials > * {
+    cursor: pointer;
+}
+
+.contact-card > .row > .card-footer > .socials > *:not(:last-child) {
+    margin-right: 0.5rem;
 }

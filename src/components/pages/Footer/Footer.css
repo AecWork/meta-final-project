@@ -9,3 +9,17 @@ footer {
     flex-direction: column;
     justify-content: space-between;
 }
+
+footer > .other-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer > .other-info > .terms {
+    display: flex;
+}
+
+footer > .other-info > .terms > *:not(:last-child) {
+    margin-right: 2rem;
+}

@@ -22,9 +22,15 @@ const Footer: React.FC = () => {
   useEventListener('scroll', onScroll);
 
   return (
-    <footer ref={ref} style={{ height: `calc(100vh - ${headerHeight}px)` }}>
+    <footer ref={ref} style={{ height: `calc(100vh - ${headerHeight}px + 1px)` }}>
       <ContactCard />
-      <section className='other-info'></section>
+      <section className='other-info'>
+        <div className='terms'>
+          <span>Terms & conditions</span>
+          <span>Privacy policy</span>
+        </div>
+        <span>© Bullshit S.L. - 2024</span>
+      </section>
     </footer>
   )
 }
