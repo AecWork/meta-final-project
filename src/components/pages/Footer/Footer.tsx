@@ -3,6 +3,7 @@ import './Footer.css';
 import useHeaderHeight from '../../../hooks/useHeaderHeight/useHeaderHeight.ts';
 import useEventListener from '../../../hooks/useEventListener/useEventListener.ts';
 import { useTheme } from '../../../contexts/ThemeContext.tsx';
+import ContactCard from './ContactCard/ContactCard.tsx';
 
 const Footer: React.FC = () => {
   const themeContext = useTheme();
@@ -22,6 +23,8 @@ const Footer: React.FC = () => {
 
   return (
     <footer ref={ref} style={{ height: `calc(100vh - ${headerHeight}px)` }}>
+      <ContactCard />
+      <section className='other-info'></section>
     </footer>
   )
 }

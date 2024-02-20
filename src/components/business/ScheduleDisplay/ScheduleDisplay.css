@@ -1,0 +1,15 @@
+.schedule-display-container{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.schedule-display-container > .days {
+    margin-bottom: 0.5rem;
+}
+
+.schedule-display-container > .hours {
+    font-family: "Rosalia";
+    font-size: 5rem;
+    line-height: 1.2;
+}
