@@ -12,7 +12,7 @@ const ContactCard: React.FC = () => {
     <section className='contact-card'>
         <div className='row'>
             <Semicircle />
-            <span className='text-XL italics'>SCHEDULE & CONTACT</span>
+            <span className='italics'>SCHEDULE & CONTACT</span>
             <Semicircle />
         </div>
         <div className='content'>
@@ -31,7 +31,7 @@ const ContactCard: React.FC = () => {
               />
             </div>
             <div className='location'>
-              <a href="javascript:;" className='text-XL uppercase'>907 W WRIGHTWOOD AVE APT 1 CHICAGO IL 60614-7462USA</a>
+              <a href="javascript:;" className='uppercase'>907 W WRIGHTWOOD AVE APT 1 CHICAGO IL 60614-7462USA</a>
               <div className='map-container' />
             </div>
         </div>

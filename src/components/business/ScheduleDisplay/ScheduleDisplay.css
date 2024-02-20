@@ -13,3 +13,25 @@
     font-size: 5rem;
     line-height: 1.2;
 }
+
+@media (max-width: 1000px) {
+    .schedule-display-container > .hours {
+        font-size: 3.8125rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .schedule-display-container{
+        align-items: center;
+    }
+
+    .schedule-display-container > .hours {
+        font-size: 2.25rem;
+        white-space: nowrap;
+    }
+
+    .schedule-display-container > .days {
+        font-size: 1.3125rem;
+        white-space: nowrap;
+    }
+}

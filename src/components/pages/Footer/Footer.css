@@ -14,6 +14,7 @@ footer > .other-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: var(--side-margin);
 }
 
 footer > .other-info > .terms {
@@ -22,4 +23,24 @@ footer > .other-info > .terms {
 
 footer > .other-info > .terms > *:not(:last-child) {
     margin-right: 2rem;
+}
+
+@media (max-width: 768px) {
+    footer{
+        height: fit-content !important;
+    }
+
+    footer > .other-info {
+        align-items: flex-start;
+    }
+
+    footer > .other-info > .terms {
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer > .other-info > .terms > *:not(:last-child) {
+        margin-right: 0;
+        margin-bottom: 1rem;
+    }
 }

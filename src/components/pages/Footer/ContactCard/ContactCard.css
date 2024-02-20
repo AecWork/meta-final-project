@@ -1,7 +1,8 @@
 .contact-card {
     --border-style: 1px solid var(--LL-main);
+    --center-width: calc(100% - 224px);
     border: var(--border-style);
-    height: fit-content;
+    height: 100%;
     width: 100%;
 
     display: flex;
@@ -15,6 +16,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
+}
+
+.contact-card > .row > span {
+    font-size: 1.6875rem;
 }
 
 .contact-card > .row > *:last-child {
@@ -30,8 +36,8 @@
 }
 
 .contact-card > .content {
-    height: fit-content;
-    width: 75%;
+    height: 100%;
+    width: var(--center-width);
     border-bottom: var(--border-style);
     border-top: var(--border-style);
 
@@ -46,7 +52,7 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: center;
 }
 
 .contact-card > .content > *:first-child {
@@ -76,13 +82,18 @@
 
 .contact-card > .content > .location > a {
     color: var(--LL-main);
+    font-size: 1.6875rem;
 }
 
 .contact-card > .row > .card-footer {
     display: flex;
-    width: 75%;
+    width: var(--center-width);
     justify-content: space-between;
     align-items: center;
+}
+
+.contact-card > .row > .card-footer > span {
+    font-size: 1.3125rem;
 }
 
 .contact-card > .row > .card-footer > .socials {
@@ -95,4 +106,66 @@
 
 .contact-card > .row > .card-footer > .socials > *:not(:last-child) {
     margin-right: 0.5rem;
+}
+
+@media (max-width: 768px) {
+    .contact-card > .content {
+        flex-direction: column;
+    }
+
+    .contact-card > .content > * {
+        align-items: center;
+    }
+
+    .contact-card > .content > *:first-child {
+        border-right: 0;
+        border-bottom: var(--border-style);
+    }
+
+    .contact-card > .content > .schedule {
+        padding: 2rem 0 2rem 0;
+    }
+
+    .contact-card > .content > .location {
+        padding: 2rem 0 2rem 0;
+    }
+
+    .contact-card > .row > svg {
+        height: 60px;
+        width: 60px;
+    }
+
+    .contact-card > .row > span {
+        font-size: 1rem;
+    }
+
+    .contact-card {
+        --center-width: calc(100% - 152px);
+    }
+
+    .contact-card > .content > .schedule > *:not(:last-child), .contact-card > .content > .location > a {
+        margin-bottom: 1.5rem;
+    }
+
+    .contact-card > .content > .location > a {
+        color: var(--LL-main);
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .contact-card > .content > .location > .map-container {
+        height: 20vh;
+    }
+
+    .contact-card > .row > .card-footer {
+        justify-content: center;
+    }
+
+    .contact-card > .row > .card-footer > span {
+        font-size: 1rem;
+    }
+
+    .contact-card > .row > .card-footer > .socials {
+        display: none;
+    }
 }
