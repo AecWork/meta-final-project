@@ -2,6 +2,7 @@ import React from 'react'
 import './Header.css';
 import Button, { ButtonType } from '../Button/Button.tsx';
 import { ReactComponent as Logo } from '../../../assets/logo/LL-logo-black.svg';
+import { ReactComponent as BurgerMenuIcon } from '../../../assets/icons/burger-menu.svg';
 import CenterImg from '../../../assets/illustrations/Header-center-ill.svg';
 import { useTheme } from '../../../contexts/ThemeContext.tsx';
 
@@ -11,6 +12,7 @@ const Header: React.FC = () => {
   return (
     <header className={`${themeContext.theme}`}>
       <section>
+        <BurgerMenuIcon className="burger-menu-icon"/>
         <Logo />
         <nav>
           <ul>

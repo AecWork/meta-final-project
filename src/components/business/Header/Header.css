@@ -14,6 +14,11 @@ header {
     transition: background-color 0.5s var(--easing);
 }
 
+header > section > .burger-menu-icon {
+    display: none;
+    cursor: pointer;
+}
+
 header.dark {
     background-color: var(--LL-black);
 }
@@ -27,7 +32,6 @@ header > section {
 }
 
 header > section > *:not(:last-child) {
-    display: flex;
     margin-right: 2rem;
 }
 
@@ -60,6 +64,16 @@ header > img {
     header {
         padding: var(--side-margin);
     }
+
+    header > section > .burger-menu-icon {
+        display: block;
+    }
+
+
+    header > section > *:not(:last-child) {
+        margin-right: 1rem;
+    }
+
     nav {
         display: none;
     }
