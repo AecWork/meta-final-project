@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
   useEventListener('scroll', onScroll);
 
   return (
-    <footer ref={ref} style={{ height: `calc(100vh - ${headerHeight}px + 1px)` }}>
+    <footer ref={ref}>
       <ContactCard />
       <section className='other-info'>
         <div className='terms'>

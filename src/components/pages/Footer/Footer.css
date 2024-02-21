@@ -4,6 +4,7 @@ footer {
     z-index: 10;
     margin: 0 calc(var(--side-margin) * -1);
     padding: var(--side-margin);
+    height: fit-content;
 
     display: flex;
     flex-direction: column;
@@ -25,11 +26,13 @@ footer > .other-info > .terms > *:not(:last-child) {
     margin-right: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     footer{
         height: fit-content !important;
     }
+}
 
+@media (max-width: 768px) {
     footer > .other-info {
         align-items: flex-start;
     }
