@@ -21,7 +21,7 @@ button {
 }
 
 button.icon {
-    padding: calc(1rem / 2);
+    padding: calc(calc(1rem / 2) - 2px);
 }
 
 .light {
