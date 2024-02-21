@@ -5,13 +5,16 @@ import Main from './components/pages/Main/Main.tsx';
 // import Footer from './components/pages/Footer/Footer.tsx';
 import SplashScreen from './components/pages/SplashScreen/SplashScreen.tsx';
 import { ThemeProvider } from "./contexts/ThemeContext.tsx";
+import { ModalContextProvider } from "./contexts/ModalContext.tsx";
 
 const App = () => {
   return (
     <ThemeProvider>
-      <SplashScreen />
-      <Header />
-      <Main />
+      <ModalContextProvider>
+        <SplashScreen />
+        <Header />
+        <Main />
+      </ModalContextProvider>
     </ThemeProvider>
   );
 }
