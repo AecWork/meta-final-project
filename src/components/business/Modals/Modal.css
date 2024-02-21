@@ -1,0 +1,44 @@
+.full-page {
+    background-color: var(--LL-main);
+    width: 100%;
+    height: 100%;
+    /* filter: drop-shadow(0 -1rem 1.5rem rgba(35, 35, 35, 0.1)); */
+    border-top: 2px solid var(--LL-black);
+    padding: var(--side-margin);
+}
+
+.full-page.closing {
+    transition: transform 1s var(--easing);
+    transform: translateY(100%);
+}
+
+.close-container {
+    position: absolute;
+    right: var(--side-margin);
+}
+
+.full-page[open] {
+    animation: slide-in 1s var(--easing);
+}
+
+.full-page::backdrop {
+    background-color: transparent;
+}
+
+@keyframes slide-in {
+    0%{
+      transform: translateY(100%);
+    }
+    100%{
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-out {
+    0%{
+      transform: translateY(0);
+    }
+    100%{
+        transform: translateY(100);
+    }
+}

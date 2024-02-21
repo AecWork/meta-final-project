@@ -5,9 +5,11 @@ import { ReactComponent as Logo } from '../../../assets/logo/LL-logo-black.svg';
 import { ReactComponent as BurgerMenuIcon } from '../../../assets/icons/burger-menu.svg';
 import CenterImg from '../../../assets/illustrations/Header-center-ill.svg';
 import { useTheme } from '../../../contexts/ThemeContext.tsx';
+import { useModal } from '../../../contexts/ModalContext.tsx';
 
 const Header: React.FC = () => {
   const themeContext = useTheme();
+  const { openModal } = useModal();
 
   return (
     <header className={`${themeContext.theme}`}>
@@ -17,7 +19,7 @@ const Header: React.FC = () => {
         <nav>
           <ul>
             <li><Button type={ButtonType.LINK}>Home</Button></li>
-            <li><Button type={ButtonType.LINK}>About</Button></li>
+            <li><Button type={ButtonType.LINK} onClick={() => openModal(<></>)}>About</Button></li>
             <li><Button type={ButtonType.LINK}>Menu</Button></li>
             <li><Button type={ButtonType.LINK}>Contact</Button></li>
           </ul>

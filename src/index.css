@@ -75,6 +75,12 @@ html {
   width: 100%;
 }
 
+dialog {
+  max-width: unset;
+  max-height: unset;
+  border: none;
+}
+
 body {
   background-color: var(--LL-main);
   overflow: hidden;

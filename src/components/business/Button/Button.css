@@ -6,7 +6,7 @@ button {
     border: none;
     font-family: "DM Sans";
 
-    padding: calc(1rem / 2) calc(1rem) calc(1rem / 2) calc(1rem);
+    padding: calc(1rem / 2) calc(1rem);
 
     font-family: "DM Serif Display", serif;
     -webkit-font-smoothing: antialiased;
@@ -16,7 +16,12 @@ button {
 
     position: relative;
 
+    z-index: 1;
     cursor: pointer;
+}
+
+button.icon {
+    padding: calc(1rem / 2);
 }
 
 .light {
@@ -53,14 +58,14 @@ button {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: calc(-1 * var(--extrude-distance));
+    height: calc(-1 * var(--extrude-distance));;
     background-color: var(--accent-color);
 }
 
 .container::before {
     top: 0;
     right: 0;
-    width: calc(-1 * var(--extrude-distance));
+    width: calc(-1.5 * var(--extrude-distance));
     height: 100%;
     background-color: var(--accent-color);
 }
@@ -103,6 +108,11 @@ button.link:hover::after {
 button.CTA {
     background-color: var(--accent-color);
     color: var(--main-color);
+}
+
+button.default {
+    background-color: var(--main-color);
+    border: 2px solid var(--accent-color);
 }
 
 .container.light > button.CTA:hover {

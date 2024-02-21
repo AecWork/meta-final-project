@@ -15,7 +15,7 @@ interface IProps {
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.CTA, onClick}) => {
+const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.DEFAULT, onClick}) => {
   const { theme } = useTheme();
 
   const buttonTypeStyle: string = React.useMemo(() => {
@@ -29,7 +29,7 @@ const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.CTA, o
 
   const button: JSX.Element = React.useMemo(() =>
     <button
-      className={`${buttonTypeStyle} text-Base`}
+      className={`${buttonTypeStyle}${typeof(children) === 'object' ? ' icon' : ''} text-Base`}
       onClick={onClick}
     >
       {children || "Button"}

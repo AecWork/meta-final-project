@@ -7,7 +7,7 @@ export enum ModalType {
     FULL_PAGE = 'full-page'
 }
 
-type ToggleModalFunc = (content: React.ReactNode, type: ModalType) => void
+type ToggleModalFunc = (content: React.ReactNode, type?: ModalType) => void
 
 interface ModalContextValue {
   openModal: ToggleModalFunc
@@ -21,18 +21,23 @@ const overlayElement = document.getElementById('overlays');
 
 export const ModalContextProvider = ({ children }) => {
     const dialogRef = React.useRef<HTMLDialogElement>(null);
-    const [modal, setModal] = React.useState<React.ReactNode>(null);
 
-    const openModal: ToggleModalFunc = (content, type) => {
+    const [modal, setModal] = React.useState<React.ReactNode>(
+        <Modal content={<></>} ref={dialogRef}/>
+    );
+
+    const openModal: ToggleModalFunc = (content, type = ModalType.FULL_PAGE) => {
         const dialog = dialogRef.current;
 
         if (!dialog) return;
 
-        setModal(<Modal type={type} content={content} />);
+        setModal(<Modal type={type} content={content} ref={dialogRef}/>);
 
-        dialog.hasAttribute('open')
-            ? dialog.close()
-            : dialog.showModal()
+        document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+
+        if (!dialog.hasAttribute('open')) {
+            dialog.showModal();
+        }
     }
 
     return (
