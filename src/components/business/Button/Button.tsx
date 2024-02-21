@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { MouseEventHandler } from 'react'
 import './Button.css';
 import { useTheme } from '../../../contexts/ThemeContext.tsx';
 
@@ -12,9 +12,10 @@ export enum ButtonType {
 interface IProps {
   children?: string | JSX.Element
   type?: ButtonType
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.CTA}) => {
+const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.CTA, onClick}) => {
   const { theme } = useTheme();
 
   const buttonTypeStyle: string = React.useMemo(() => {
@@ -27,8 +28,13 @@ const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.CTA}) 
   }, [type])
 
   const button: JSX.Element = React.useMemo(() =>
-    <button className={`${buttonTypeStyle} text-Base`}>{children || "Button"}</button>
-  , [children, buttonTypeStyle]);
+    <button
+      className={`${buttonTypeStyle} text-Base`}
+      onClick={onClick}
+    >
+      {children || "Button"}
+    </button>
+  , [children, buttonTypeStyle, onClick]);
 
   return (
     <div className={`${type === ButtonType.LINK ? '' : 'container '}${theme}`}>
