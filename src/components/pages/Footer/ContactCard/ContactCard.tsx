@@ -3,9 +3,10 @@
 import React from 'react'
 import './ContactCard.css'
 import { ReactComponent as Semicircle } from '../../../../assets/illustrations/semicircle.svg'
-import ScheduleDisplay, { ScheduleDays } from '../../../business/ScheduleDisplay/ScheduleDisplay.tsx'
-import Instagram from '../../../../assets/logo/Instagram.svg';
-import X from '../../../../assets/logo/TwitterX.svg';
+import ScheduleDisplay from '../../../business/ScheduleDisplay/ScheduleDisplay.tsx'
+import { ReactComponent as Instagram} from '../../../../assets/logo/Instagram.svg'
+import { ReactComponent as X} from '../../../../assets/logo/TwitterX.svg'
+import { SCHEDULE_1, SCHEDULE_2 } from '../../../../data/constants/constants.ts';
 
 const ContactCard: React.FC = () => {
   return (
@@ -17,18 +18,8 @@ const ContactCard: React.FC = () => {
         </div>
         <div className='content'>
             <div className='schedule'>
-              <ScheduleDisplay
-                startDay={ScheduleDays.MONDAY}
-                endDay={ScheduleDays.FRIDAY}
-                startTime={8}
-                endTime={16}
-              />
-              <ScheduleDisplay
-                startDay={ScheduleDays.FRIDAY}
-                endDay={ScheduleDays.SUNDAY}
-                startTime={8}
-                endTime={23}
-              />
+              <ScheduleDisplay {...SCHEDULE_1} />
+              <ScheduleDisplay {...SCHEDULE_2} />
             </div>
             <div className='location'>
               <a href="javascript:;" className='uppercase'>907 W WRIGHTWOOD AVE APT 1 CHICAGO IL 60614-7462USA</a>
@@ -40,8 +31,8 @@ const ContactCard: React.FC = () => {
             <div className='card-footer'>
               <span className='text-L uppercase'>+1 (312) 555-3890</span>
               <div className='socials'>
-                <img src={Instagram} alt='Instagram' />
-                <img src={X} alt='X' />
+                <Instagram/>
+                <X/>
               </div>
             </div>
             <Semicircle />

@@ -102,6 +102,7 @@
 
 .contact-card > .row > .card-footer > .socials > * {
     cursor: pointer;
+    fill: var(--LL-main);
 }
 
 .contact-card > .row > .card-footer > .socials > *:not(:last-child) {

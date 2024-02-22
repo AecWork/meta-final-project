@@ -6,6 +6,7 @@ import { ReactComponent as BurgerMenuIcon } from '../../../assets/icons/burger-m
 import CenterImg from '../../../assets/illustrations/Header-center-ill.svg';
 import { useTheme } from '../../../contexts/ThemeContext.tsx';
 import { useModal } from '../../../contexts/ModalContext.tsx';
+import About from '../../pages/About/About.tsx';
 
 const Header: React.FC = () => {
   const themeContext = useTheme();
@@ -19,7 +20,7 @@ const Header: React.FC = () => {
         <nav>
           <ul>
             <li><Button type={ButtonType.LINK}>Home</Button></li>
-            <li><Button type={ButtonType.LINK} onClick={() => openModal(<></>)}>About</Button></li>
+            <li><Button type={ButtonType.LINK} onClick={() => openModal(<About />)}>About</Button></li>
             <li><Button type={ButtonType.LINK}>Menu</Button></li>
             <li><Button type={ButtonType.LINK}>Contact</Button></li>
           </ul>
