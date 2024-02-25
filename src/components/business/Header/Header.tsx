@@ -13,7 +13,7 @@ import './Header.css';
 
 const Header: React.FC = () => {
   const themeContext = useTheme();
-  const { openModal } = useModal();
+  const { openModal, closeModal } = useModal();
   const {isMobile} = useMediaQuery();
 
   const buttonType = React.useMemo(() =>
@@ -25,13 +25,13 @@ const Header: React.FC = () => {
   const nav = React.useMemo(() => (
     <nav>
       <ul>
-        <li><Button type={buttonType} onClick={() => scrollTo(Section.HERO)}>Home</Button></li>
-        <li><Button type={buttonType} onClick={() => openModal(<About />)}>About</Button></li>
-        <li><Button type={buttonType} onClick={() => openModal(<Menu />)}>Menu</Button></li>
-        <li><Button type={buttonType} onClick={() => scrollTo(Section.CONTACT)}>Contact</Button></li>
+        <li><Button type={buttonType} onClick={() => closeModal(() => scrollTo(Section.HERO))}>Home</Button></li>
+        <li><Button type={buttonType} onClick={() => closeModal(undefined, () => openModal(<About />))}>About</Button></li>
+        <li><Button type={buttonType} onClick={() => closeModal(undefined, () => openModal(<Menu />))}>Menu</Button></li>
+        <li><Button type={buttonType} onClick={() => closeModal(() => scrollTo(Section.CONTACT))}>Contact</Button></li>
       </ul>
     </nav>
-  ), [openModal, buttonType]);
+  ), [openModal, buttonType, closeModal]);
 
   return (
     <header className={`${themeContext.theme}`}>

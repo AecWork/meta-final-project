@@ -8,7 +8,7 @@ export enum ModalType {
 }
 
 type OpenModalFunc = (content: React.ReactNode, type?: ModalType) => void
-type CloseModalFunc = (delay?: number, beforeClose?: () => void, afterClose?: () => void) => void
+type CloseModalFunc = (beforeClose?: () => void, afterClose?: () => void, delay?: number, ) => void
 
 interface ModalContextValue {
   openModal: OpenModalFunc,
@@ -47,14 +47,18 @@ export const ModalContextProvider = ({ children }) => {
         }
     }
 
-    const closeModal: CloseModalFunc = (delay = 1000, beforeClose, afterClose) => {
+    const closeModal: CloseModalFunc = (beforeClose, afterClose, delay = 1000) => {
         const dialog = dialogRef.current;
         if (!dialog) return;
+
+        dialog.classList.add('closing');
         setScrollOverflow('auto');
         beforeClose?.();
+
         setTimeout(() => {
-            afterClose?.()
+            dialog.classList.remove('closing');
             dialog.close();
+            afterClose?.()
         }, delay)
     }
 

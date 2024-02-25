@@ -10,21 +10,12 @@ interface IProps {
 }
 
 const Modal = forwardRef<HTMLDialogElement, IProps>(({type = ModalType.FULL_PAGE, content}, ref) => {
-  const [closing, isClosing] = useState<boolean>(false);
   const { closeModal } = useModal();
 
-  const onClose = () => {
-    closeModal(
-      1000,
-      () => isClosing(true),
-      () => isClosing(false)
-    );
-  }
-
   return (
-    <dialog className={`${type}${closing ? ' closing' : ''}`} ref={ref}>
+    <dialog className={`${type}`} ref={ref}>
       <div className='close-container'>
-        <Button onClick={onClose}>
+        <Button onClick={() => closeModal()}>
           <CloseIcon />
         </Button>
       </div>
