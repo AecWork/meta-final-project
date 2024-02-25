@@ -12,6 +12,7 @@ const useHeaderHeight = (): number => {
         }
     }, []);
 
+    useEventListener('resize', refresh);
     useEventListener('load', refresh);
 
     return height;
