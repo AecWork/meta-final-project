@@ -11,6 +11,13 @@ import Menu from '../../pages/Menu/Menu.tsx';
 import Button, { ButtonType } from '../Button/Button.tsx';
 import './Header.css';
 
+enum NavButton {
+  HOME = 'Home',
+  ABOUT = 'About',
+  MENU = 'Menu',
+  CONTACT = 'Contact'
+}
+
 const Header: React.FC = () => {
   const themeContext = useTheme();
   const { openModal, closeModal } = useModal();
@@ -22,16 +29,35 @@ const Header: React.FC = () => {
       : ButtonType.LINK
   , [isMobile]);
 
+  const onClick = React.useCallback((navButton: NavButton) => {
+    let func: () => void = () => {};
+
+    switch(navButton) {
+      case NavButton.HOME: func = () => scrollTo(Section.HERO); break;
+      case NavButton.ABOUT: func = () => openModal(<About />); break;
+      case NavButton.MENU: func = () => openModal(<Menu />); break;
+      case NavButton.CONTACT: func = () => scrollTo(Section.CONTACT); break;
+    }
+
+    if (isMobile) {
+      switch(navButton) {
+        case NavButton.HOME: case NavButton.CONTACT: closeModal(func); break;
+        default: closeModal(undefined, func);
+      }
+    } else {
+      func();
+    }
+  }, [closeModal, isMobile, openModal])
+
   const nav = React.useMemo(() => (
     <nav>
       <ul>
-        <li><Button type={buttonType} onClick={() => closeModal(() => scrollTo(Section.HERO))}>Home</Button></li>
-        <li><Button type={buttonType} onClick={() => closeModal(undefined, () => openModal(<About />))}>About</Button></li>
-        <li><Button type={buttonType} onClick={() => closeModal(undefined, () => openModal(<Menu />))}>Menu</Button></li>
-        <li><Button type={buttonType} onClick={() => closeModal(() => scrollTo(Section.CONTACT))}>Contact</Button></li>
+        { Object.values(NavButton).map(nb =>
+          <li key={nb}><Button type={buttonType} onClick={() => onClick(nb)}>{ nb }</Button></li>
+        ) }
       </ul>
     </nav>
-  ), [openModal, buttonType, closeModal]);
+  ), [buttonType, onClick]);
 
   return (
     <header className={`${themeContext.theme}`}>

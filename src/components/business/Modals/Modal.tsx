@@ -1,4 +1,4 @@
-import React, { forwardRef, useState } from 'react';
+import React, { forwardRef } from 'react';
 import { ReactComponent as CloseIcon } from '../../../assets/icons/close.svg';
 import { ModalType, useModal } from '../../../contexts/ModalContext.tsx';
 import Button from '../Button/Button.tsx';
