@@ -35,12 +35,11 @@ header > section > *:not(:last-child) {
     margin-right: 2rem;
 }
 
-nav > ul {
+header nav > ul {
     display: flex;
 }
 
-nav > ul > *:not(:last-child) {
-    display: flex;
+header nav > ul > *:not(:last-child) {
     margin-right: 1.5rem;
 }
 
@@ -74,7 +73,7 @@ header > img {
         margin-right: 1rem;
     }
 
-    nav {
+    header nav {
         display: none;
     }
 }

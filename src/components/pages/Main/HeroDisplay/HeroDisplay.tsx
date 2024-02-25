@@ -8,7 +8,7 @@ import { DESKTOP_SIDE_MARGINS, MOBILE_SIDE_MARGINS, TABLET_SIDE_MARGINS } from '
 
 const HeroDisplay: React.FC = () => {
   const headerHeight = useHeaderHeight();
-  const [isDesktop, isTablet] = useMediaQuery();
+  const {isDesktop, isTablet} = useMediaQuery();
 
   const bottomMarginValue: number = React.useMemo(() => {
     if (isDesktop) return DESKTOP_SIDE_MARGINS;
@@ -18,6 +18,7 @@ const HeroDisplay: React.FC = () => {
 
   return (
     <section
+      id='hero'
       style={{height: `calc(100vh - ${headerHeight}px - ${bottomMarginValue}px)`, marginTop: headerHeight}}
       className='hero-container'
     >

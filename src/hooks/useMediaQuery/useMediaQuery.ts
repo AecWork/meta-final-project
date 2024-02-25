@@ -28,7 +28,7 @@ const useMediaQuery = () => {
 
     useEventListener('resize', refresh);
 
-    return [mediaQueryState.isDesktop, mediaQueryState.isTablet, mediaQueryState.isMobile]
+    return {isDesktop: mediaQueryState.isDesktop, isTablet: mediaQueryState.isTablet, isMobile: mediaQueryState.isMobile}
 }
 
 export default useMediaQuery;

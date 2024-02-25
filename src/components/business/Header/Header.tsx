@@ -1,31 +1,44 @@
-import React from 'react'
-import './Header.css';
-import Button, { ButtonType } from '../Button/Button.tsx';
-import { ReactComponent as Logo } from '../../../assets/logo/LL-logo-black.svg';
+import React from 'react';
 import { ReactComponent as BurgerMenuIcon } from '../../../assets/icons/burger-menu.svg';
 import CenterImg from '../../../assets/illustrations/Header-center-ill.svg';
+import { ReactComponent as Logo } from '../../../assets/logo/LL-logo-black.svg';
+import { ModalType, useModal } from '../../../contexts/ModalContext.tsx';
 import { useTheme } from '../../../contexts/ThemeContext.tsx';
-import { useModal } from '../../../contexts/ModalContext.tsx';
+import useMediaQuery from '../../../hooks/useMediaQuery/useMediaQuery.ts';
+import scrollTo, { Section } from '../../../utils/scrollTo.ts';
 import About from '../../pages/About/About.tsx';
 import Menu from '../../pages/Menu/Menu.tsx';
+import Button, { ButtonType } from '../Button/Button.tsx';
+import './Header.css';
 
 const Header: React.FC = () => {
   const themeContext = useTheme();
   const { openModal } = useModal();
+  const {isMobile} = useMediaQuery();
+
+  const buttonType = React.useMemo(() =>
+    isMobile
+      ? ButtonType.DEFAULT
+      : ButtonType.LINK
+  , [isMobile]);
+
+  const nav = React.useMemo(() => (
+    <nav>
+      <ul>
+        <li><Button type={buttonType} onClick={() => scrollTo(Section.HERO)}>Home</Button></li>
+        <li><Button type={buttonType} onClick={() => openModal(<About />)}>About</Button></li>
+        <li><Button type={buttonType} onClick={() => openModal(<Menu />)}>Menu</Button></li>
+        <li><Button type={buttonType} onClick={() => scrollTo(Section.CONTACT)}>Contact</Button></li>
+      </ul>
+    </nav>
+  ), [openModal, buttonType]);
 
   return (
     <header className={`${themeContext.theme}`}>
       <section>
-        <BurgerMenuIcon className="burger-menu-icon"/>
+        <BurgerMenuIcon onClick={() => openModal(<><Logo />{nav}</>, ModalType.SIDE_BAR)} className="burger-menu-icon"/>
         <Logo />
-        <nav>
-          <ul>
-            <li><Button type={ButtonType.LINK}>Home</Button></li>
-            <li><Button type={ButtonType.LINK} onClick={() => openModal(<About />)}>About</Button></li>
-            <li><Button type={ButtonType.LINK} onClick={() => openModal(<Menu />)}>Menu</Button></li>
-            <li><Button type={ButtonType.LINK}>Contact</Button></li>
-          </ul>
-        </nav>
+        { nav }
       </section>
       <img src={CenterImg} alt='Header center illustration' />
       <section>

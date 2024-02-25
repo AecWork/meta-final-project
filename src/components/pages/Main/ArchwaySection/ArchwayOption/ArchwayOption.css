@@ -145,9 +145,6 @@
     header {
         padding: var(--side-margin);
     }
-    nav {
-        display: none;
-    }
 
     .archway {
         min-width: 25%;

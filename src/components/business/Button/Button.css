@@ -113,6 +113,7 @@ button.CTA {
 button.default {
     background-color: var(--main-color);
     border: 2px solid var(--accent-color);
+    width: 100%;
 }
 
 .container.light > button.CTA:hover {

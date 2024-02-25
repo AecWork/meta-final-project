@@ -10,7 +10,7 @@ import { SCHEDULE_1, SCHEDULE_2 } from '../../../../data/constants/constants.ts'
 
 const ContactCard: React.FC = () => {
   return (
-    <section className='contact-card'>
+    <section id='contact' className='contact-card'>
         <div className='row'>
             <Semicircle />
             <span className='italics'>SCHEDULE & CONTACT</span>

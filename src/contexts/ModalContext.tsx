@@ -7,17 +7,24 @@ export enum ModalType {
     FULL_PAGE = 'full-page'
 }
 
-type ToggleModalFunc = (content: React.ReactNode, type?: ModalType) => void
+type OpenModalFunc = (content: React.ReactNode, type?: ModalType) => void
+type CloseModalFunc = (delay?: number, beforeClose?: () => void, afterClose?: () => void) => void
 
 interface ModalContextValue {
-  openModal: ToggleModalFunc
+  openModal: OpenModalFunc,
+  closeModal: CloseModalFunc
 }
 
 const ModalContext = React.createContext<ModalContextValue>({
-    openModal: () => {}
+    openModal: () => {},
+    closeModal: () => {}
 });
 
 const overlayElement = document.getElementById('overlays');
+
+const setScrollOverflow = (overflowType: 'auto' | 'hidden') => {
+    document.getElementsByTagName('body')[0].style.overflow = overflowType;
+}
 
 export const ModalContextProvider = ({ children }) => {
     const dialogRef = React.useRef<HTMLDialogElement>(null);
@@ -26,24 +33,36 @@ export const ModalContextProvider = ({ children }) => {
         <Modal content={<></>} ref={dialogRef}/>
     );
 
-    const openModal: ToggleModalFunc = (content, type = ModalType.FULL_PAGE) => {
+    const openModal: OpenModalFunc = (content, type = ModalType.FULL_PAGE) => {
         const dialog = dialogRef.current;
 
         if (!dialog) return;
 
         setModal(<Modal type={type} content={content} ref={dialogRef}/>);
 
-        document.getElementsByTagName('body')[0].style.overflow = 'hidden';
+        setScrollOverflow('hidden');
 
         if (!dialog.hasAttribute('open')) {
             dialog.showModal();
         }
     }
 
+    const closeModal: CloseModalFunc = (delay = 1000, beforeClose, afterClose) => {
+        const dialog = dialogRef.current;
+        if (!dialog) return;
+        setScrollOverflow('auto');
+        beforeClose?.();
+        setTimeout(() => {
+            afterClose?.()
+            dialog.close();
+        }, delay)
+    }
+
     return (
         <ModalContext.Provider
             value={{
-                openModal
+                openModal,
+                closeModal
             }}
         >
             { children }
