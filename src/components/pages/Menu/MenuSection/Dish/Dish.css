@@ -1,0 +1,24 @@
+.dish {
+    display: flex;
+    flex-direction: column;
+}
+
+.dish > .desc {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.dish > .desc > span, .dish > .desc > .price {
+    font-size: 1.3125rem;
+}
+
+.dish > p {
+    color: var(--LL-grey);
+}
+
+@media (max-width: 768px) {
+    .dish > .desc > span, .dish > .desc > .price {
+        font-size: 1rem;
+    }
+}

@@ -1,0 +1,12 @@
+.menu-entry, .menu-entry > .dish-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.menu-entry {
+    gap: 2rem;
+}
+
+.menu-entry > .dish-list {
+    gap: 1.5rem;
+}
