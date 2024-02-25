@@ -51,7 +51,6 @@ export const ModalContextProvider = ({ children }) => {
         const dialog = dialogRef.current;
         if (!dialog) return;
 
-        console.log('o');
         dialog.classList.add('closing');
         setScrollOverflow('auto');
         beforeClose?.();

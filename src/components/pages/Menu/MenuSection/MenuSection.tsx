@@ -8,7 +8,7 @@ const MenuSection: React.FC<MS> = ({ title = 'Starters', dishes = [] }) => {
     <div className='menu-entry'>
         <h6>{ title }</h6>
         <div className='dish-list'>
-            { dishes.map(dish => <Dish {...dish}/>) }
+            { dishes.map((dish, index) => <Dish key={index} {...dish}/>) }
         </div>
     </div>
   )

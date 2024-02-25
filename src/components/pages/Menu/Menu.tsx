@@ -10,7 +10,7 @@ const Menu: React.FC = () => {
       <p className='italics'>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.</p>
       <hr />
       <section className='menu-content'>
-        { MENU_DATA.map(ms => <MenuSection {...ms}/>) }
+        { MENU_DATA.map(ms => <MenuSection key={ms.title} {...ms}/>) }
       </section>
     </article>
   )
