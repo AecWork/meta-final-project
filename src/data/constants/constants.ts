@@ -20,3 +20,12 @@ export const SCHEDULE_2: Schedule = {
     startTime: 8,
     endTime: 23
 }
+
+export enum Section {
+    HOME = 'home',
+    CONTACT = 'contact',
+    ABOUT = 'about',
+    MENU = 'menu',
+    RESERVATIONS = 'reservations',
+    NAV = 'nav'
+}

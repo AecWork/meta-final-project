@@ -1,7 +1,4 @@
-export enum Section {
-    HERO = 'hero',
-    CONTACT = 'contact'
-}
+import { Section } from "../data/constants/constants";
 
 const scrollTo = (section: Section) => {
     const headerHeight = document.getElementsByTagName('header')[0]?.offsetHeight || 0;

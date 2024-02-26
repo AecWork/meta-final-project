@@ -1,14 +1,27 @@
 import React from "react";
 import ReactDOM from 'react-dom';
 import Modal from "../components/business/Modals/Modal.tsx";
+import { useNavigate } from "react-router-dom";
+import { Section } from "../data/constants/constants.ts";
+import About from "../components/pages/About/About.tsx";
+import Menu from "../components/pages/Menu/Menu.tsx";
+import Reserve from "../components/pages/Reserve/Reserve.tsx";
+import Nav from "../components/business/Header/Nav/Nav.tsx";
 
 export enum ModalType {
     SIDE_BAR = 'side-bar',
     FULL_PAGE = 'full-page'
 }
 
-type OpenModalFunc = (content: React.ReactNode, type?: ModalType) => void
-type CloseModalFunc = (beforeClose?: () => void, afterClose?: () => void, delay?: number, ) => void
+const MODAL_COMPONENTS = {
+    [Section.ABOUT]: <About />,
+    [Section.MENU]: <Menu />,
+    [Section.RESERVATIONS]: <Reserve />,
+    [Section.NAV]: <Nav />
+}
+
+type OpenModalFunc = (section: Section, type?: ModalType) => void
+type CloseModalFunc = (beforeClose?: (() => void) | null, afterClose?: (() => void) | null, delay?: number, ) => void
 
 interface ModalContextValue {
   openModal: OpenModalFunc,
@@ -28,17 +41,25 @@ const setScrollOverflow = (overflowType: 'auto' | 'hidden') => {
 
 export const ModalContextProvider = ({ children }) => {
     const dialogRef = React.useRef<HTMLDialogElement>(null);
+    const navigate = useNavigate();
 
     const [modal, setModal] = React.useState<React.ReactNode>(
         <Modal content={<></>} ref={dialogRef}/>
     );
 
-    const openModal: OpenModalFunc = (content, type = ModalType.FULL_PAGE) => {
+    const openModal: OpenModalFunc = (section, type = ModalType.FULL_PAGE) => {
         const dialog = dialogRef.current;
 
         if (!dialog) return;
 
-        setModal(<Modal type={type} content={content} ref={dialogRef}/>);
+        navigate(`#${section}`);
+        setModal(
+            <Modal
+                type={type}
+                content={MODAL_COMPONENTS[section]}
+                ref={dialogRef}
+            />
+        );
 
         setScrollOverflow('hidden');
 
@@ -51,6 +72,7 @@ export const ModalContextProvider = ({ children }) => {
         const dialog = dialogRef.current;
         if (!dialog) return;
 
+        navigate('/');
         dialog.classList.add('closing');
         setScrollOverflow('auto');
         beforeClose?.();

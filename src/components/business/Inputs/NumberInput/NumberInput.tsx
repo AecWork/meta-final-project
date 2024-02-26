@@ -1,8 +1,13 @@
 import React from 'react'
+import './NumberInput.css'
 
 const NumberInput: React.FC = () => {
+
   return (
-    <input>NumberInput</input>
+    <div>
+      <label></label>
+      <input type='number'>NumberInput</input>
+    </div>
   )
 }
 
