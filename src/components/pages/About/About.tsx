@@ -24,7 +24,7 @@ Pellentesque commodo lacus at sodales sodales. Quisque sagittis orci ut diam con
               <ScheduleDisplay {...SCHEDULE_2} />
             </div>
             <div className='contact'>
-              <a href="javascript:;" className='uppercase'>907 W WRIGHTWOOD AVE APT 1 CHICAGO IL 60614-7462USA</a>
+              <a href="/" onClick={(e) => e.preventDefault()} className='uppercase'>907 W WRIGHTWOOD AVE APT 1 CHICAGO IL 60614-7462USA</a>
               <span className='text-L uppercase'>+1 (312) 555-3890</span>
               <div className='socials'>
                 <Instagram/>

@@ -18,7 +18,7 @@ const ArchwayOption: React.FC<IProps> = ({
   const { dimensions, ref } = useElementDimensions();
 
   return (
-    <li className='archway-option' ref={ref}>
+    <li className='archway-option' ref={ref} onClick={() => console.log('a')}>
       { AD.generateArchedTitle(option, dimensions.width) }
       <Parallax
         className='archway'

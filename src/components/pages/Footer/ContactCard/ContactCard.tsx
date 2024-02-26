@@ -22,7 +22,7 @@ const ContactCard: React.FC = () => {
               <ScheduleDisplay {...SCHEDULE_2} />
             </div>
             <div className='location'>
-              <a href="javascript:;" className='uppercase'>907 W WRIGHTWOOD AVE APT 1 CHICAGO IL 60614-7462USA</a>
+              <a href="/" onClick={(e) => e.preventDefault()} className='uppercase'>907 W WRIGHTWOOD AVE APT 1 CHICAGO IL 60614-7462USA</a>
               <div className='map-container' />
             </div>
         </div>

@@ -15,7 +15,7 @@ const Header: React.FC = () => {
   return (
     <header className={`${themeContext.theme}`}>
       <section>
-        {<BurgerMenuIcon onClick={() => openModal(Section.NAV, ModalType.SIDE_BAR)} className="burger-menu-icon"/> }
+        <BurgerMenuIcon onClick={() => openModal(Section.NAV, ModalType.SIDE_BAR)} className="burger-menu-icon"/>
         <Nav />
       </section>
       <img src={CenterImg} alt='Header center illustration' />
