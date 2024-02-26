@@ -65,7 +65,7 @@ button.icon {
 .container::before {
     top: 0;
     right: 0;
-    width: calc(-1.5 * var(--extrude-distance));
+    width: calc(-1 * var(--extrude-distance));
     height: 100%;
     background-color: var(--accent-color);
 }
