@@ -1,6 +1,6 @@
 import React from 'react'
 import './Reserve.css'
-import { ReservationContextProvider } from '../../../contexts/ReservationContext.tsx'
+import { ReservationContextProvider } from '../../../contexts/ReservationContext/ReservationContext.tsx'
 import ReserveForm from './ReserveForm/ReserveForm.tsx'
 
 const Reserve: React.FC = () => {

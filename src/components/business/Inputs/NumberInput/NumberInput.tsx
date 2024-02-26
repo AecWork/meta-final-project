@@ -22,11 +22,13 @@ const NumberInput: React.FC<Props> = ({
   max = null
 }) => {
 
+  React.useEffect(() => console.log(error), [error]);
+
   const handleClick = React.useCallback((value: number) => {
     if (value >= min && (max === null || value <= max)) {
       onChange?.(value);
     }
-  }, [max, min, onChange])
+  }, [max, min, onChange]);
 
   const handleOpClick = React.useCallback((op: Operation, e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -38,10 +40,10 @@ const NumberInput: React.FC<Props> = ({
         handleClick((value || 0) - 1);
         break;
     }
-  }, [value, handleClick])
+  }, [value, handleClick]);
 
   return (
-    <div className='field-wrapper'>
+    <div className={`field-wrapper${error ? ' errored' : ''}`}>
       {!label ? null : <label className='text-XL'>{ label }</label>}
       <div className='number-input-wrapper'>
         <button
@@ -58,6 +60,7 @@ const NumberInput: React.FC<Props> = ({
         />
         <button className='add' onClick={e => handleOpClick(Operation.ADD, e)}>+</button>
       </div>
+      <span>{ error }</span>
     </div>
   )
 }

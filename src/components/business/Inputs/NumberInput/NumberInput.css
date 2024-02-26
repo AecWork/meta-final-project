@@ -5,6 +5,10 @@
     width: 100%;
 }
 
+.field-wrapper.errored > span {
+    color: #FC735B;
+}
+
 .number-input-wrapper {
     --border-style: 2px solid var(--LL-black);
     display: flex;
@@ -57,12 +61,11 @@ input[type=number]::-webkit-outer-spin-button {
     transition: background-color 1s var(--easing);
 }
 
-.number-input-wrapper button,  input[type='number'] {
-    background-color: rgba(35,35,35, 0);
-    transition: background-color 1s var(--easing);
-}
-
 .number-input-wrapper button:hover, input[type='number']:focus-visible {
     outline: none;
     background-color: rgba(35,35,35, 0.05);
+}
+
+.field-wrapper.errored input[type='number'], .field-wrapper.errored > .number-input-wrapper button {
+    background-color: rgba(255,101,71, 0.3);
 }
