@@ -10,8 +10,10 @@ const ReserveForm: React.FC = () => {
         <form>
             <NumberInput
                 label='How many will you be?'
+                caption='20 max'
                 value={data[ReservationField.CLIENTS_AMMOUNT]}
                 onChange={value => updateValue(value, ReservationField.CLIENTS_AMMOUNT)}
+                max={20}
             />
         </form>
     )

@@ -7,27 +7,38 @@ enum Operation {
   SUBTRACT
 }
 
-const NumberInput: React.FC<InputProps<number>> = ({
+interface Props extends InputProps<number> {
+  min?: number
+  max?: number | null
+}
+
+const NumberInput: React.FC<Props> = ({
   label,
   value,
   caption = '',
   error,
-  onChange
+  onChange,
+  min = 0,
+  max = null
 }) => {
+
+  const handleClick = React.useCallback((value: number) => {
+    if (value >= min && (max === null || value <= max)) {
+      onChange?.(value);
+    }
+  }, [max, min, onChange])
 
   const handleOpClick = React.useCallback((op: Operation, e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     switch(op) {
       case Operation.ADD:
-        onChange?.((value || 0) + 1);
+        handleClick((value || 0) + 1);
         break;
       case Operation.SUBTRACT:
-        if (value && value > 0) {
-          onChange?.(value - 1);
-        }
+        handleClick((value || 0) - 1);
         break;
     }
-  }, [onChange, value])
+  }, [value, handleClick])
 
   return (
     <div className='field-wrapper'>
@@ -43,7 +54,7 @@ const NumberInput: React.FC<InputProps<number>> = ({
           type='number'
           value={value?.toString()}
           placeholder={caption}
-          onChange={(e) => onChange?.(parseInt(e.target.value))}
+          onChange={(e) => handleClick(parseInt(e.target.value) || 0)}
         />
         <button className='add' onClick={e => handleOpClick(Operation.ADD, e)}>+</button>
       </div>
