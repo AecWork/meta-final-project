@@ -1,5 +1,5 @@
 import React from 'react'
-import './NumberInput.css'
+import '../commonStyles.css'
 import { InputProps } from '../commonTypes'
 
 enum Operation {
@@ -18,14 +18,12 @@ const NumberInput: React.FC<Props> = ({
   caption = '',
   error,
   onChange,
-  min = 0,
+  min = 1,
   max = null
 }) => {
 
-  React.useEffect(() => console.log(error), [error]);
-
   const handleClick = React.useCallback((value: number) => {
-    if (value >= min && (max === null || value <= max)) {
+    if (isNaN(value) || (value >= min && (max === null || value <= max))) {
       onChange?.(value);
     }
   }, [max, min, onChange]);
@@ -44,8 +42,8 @@ const NumberInput: React.FC<Props> = ({
 
   return (
     <div className={`field-wrapper${error ? ' errored' : ''}`}>
-      {!label ? null : <label className='text-XL'>{ label }</label>}
-      <div className='number-input-wrapper'>
+      <label className='text-XL'>{ label }</label>
+      <div className='input-wrapper'>
         <button
           className='subtract'
           onClick={e => handleOpClick(Operation.SUBTRACT, e)}
@@ -56,11 +54,12 @@ const NumberInput: React.FC<Props> = ({
           type='number'
           value={value?.toString()}
           placeholder={caption}
-          onChange={(e) => handleClick(parseInt(e.target.value) || 0)}
+          onChange={(e) => handleClick(parseInt(e.target.value) || NaN)}
+          onBlur={(e) => handleClick(parseInt(e.target.value) || NaN)}
         />
         <button className='add' onClick={e => handleOpClick(Operation.ADD, e)}>+</button>
       </div>
-      <span>{ error }</span>
+      <span>{ error || 'no error' }</span>
     </div>
   )
 }

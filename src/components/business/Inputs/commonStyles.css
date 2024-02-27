@@ -9,22 +9,15 @@
     color: #FC735B;
 }
 
-.number-input-wrapper {
-    --border-style: 2px solid var(--LL-black);
+.input-wrapper {
+    --border-style: 1px solid var(--LL-black);
     display: flex;
     align-items: center;
     justify-content: space-between;
     height: 106px;
 }
 
-/* input {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    all: unset;
-} */
-
-input[type='number'] {
+input {
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
@@ -37,35 +30,56 @@ input[type='number'] {
     line-height: 1.2;
     text-align: center;
     padding: 1rem 0;
+    width: 100%;
+    height: 100%;
 }
 
-input[type=number]::-webkit-inner-spin-button,
-input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button,
+input::-webkit-calendar-picker-indicator {
+    display: none;
+    pointer-events: none;
+    -webkit-appearance: none;
 }
 
-.number-input-wrapper button {
+input::placeholder, input[type=date] {
+    color: rgba(35,35,35,0.5);
+}
+
+input[type=date].has-value{
+    color: var(--LL-black)
+}
+
+.input-wrapper button {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 3.8125rem;
     line-height: 1.2;
     cursor: pointer;
-    border: 2px solid var(--LL-black);
+    border: var(--border-style);
     height: 100%;
     aspect-ratio: 1;
 }
 
-.number-input-wrapper button,  input[type='number'] {
+.input-wrapper button,  input {
     background-color: rgba(35,35,35, 0);
     transition: background-color 1s var(--easing);
 }
 
-.number-input-wrapper button:hover, input[type='number']:focus-visible {
+.input-wrapper button:hover, input:focus-visible {
     outline: none;
     background-color: rgba(35,35,35, 0.05);
 }
 
-.field-wrapper.errored input[type='number'], .field-wrapper.errored > .number-input-wrapper button {
+.field-wrapper.errored input, .field-wrapper.errored > .input-wrapper button {
     background-color: rgba(255,101,71, 0.3);
+}
+
+.field-wrapper > span {
+    visibility: hidden;
+}
+
+.field-wrapper.errored > span {
+    visibility: visible;
 }

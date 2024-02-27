@@ -29,7 +29,7 @@ interface ReservationDataErrors {
 }
 
 const EMPTY_RESERVATION: ReservationData = {
-    [ReservationField.CLIENTS_AMMOUNT]: 0,
+    [ReservationField.CLIENTS_AMMOUNT]: NaN,
     [ReservationField.DATE]: '',
     [ReservationField.TIME]: '',
     [ReservationField.NAME]: '',

@@ -1,8 +1,55 @@
-import React from 'react'
+import React, { useCallback, useRef } from 'react'
+import { InputProps } from '../commonTypes'
+import {ReactComponent as ChevronDown} from '../../../../assets/icons/chevronDown.svg';
+import {ReactComponent as Calendar} from '../../../../assets/icons/calendar.svg';
 
-const DateInput: React.FC = () => {
+const DateInput: React.FC<InputProps<string>> = ({
+  label,
+  value,
+  caption = '',
+  error,
+  onChange
+}) => {
+  const ref = useRef<HTMLInputElement>(null);
+
+  const handlePickerClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!ref?.current) return;
+    ref.current.showPicker();
+  }, []);
+
+  const handleDateClick = useCallback((e: React.FocusEvent<HTMLInputElement, Element> | React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault();
+    onChange?.(e.target.value)
+  }, [onChange]);
+
   return (
-    <input>DateInput</input>
+    <div className={`field-wrapper${error ? ' errored' : ''}`}>
+      {!label ? null : <label className='text-XL'>{ label }</label>}
+      <div className='input-wrapper'>
+        <button
+          className='subtract'
+          onClick={handlePickerClick}
+        >
+          <Calendar />
+        </button>
+        <input
+          type='date'
+          className={`${value ? 'has-value' : ''}`}
+          value={value}
+          onChange={handleDateClick}
+          onBlur={handleDateClick}
+          ref={ref}
+        />
+        <button
+          className='subtract'
+          onClick={handlePickerClick}
+        >
+          <ChevronDown />
+        </button>
+      </div>
+      <span>{ error || 'no error' }</span>
+    </div>
   )
 }
 
