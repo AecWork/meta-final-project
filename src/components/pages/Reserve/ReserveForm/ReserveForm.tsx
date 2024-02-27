@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useState } from 'react'
 import './ReserveForm.css'
 import { ReservationField, useReservation } from '../../../../contexts/ReservationContext/ReservationContext.tsx'
 import NumberInput from '../../../business/Inputs/NumberInput/NumberInput.tsx';
@@ -6,15 +6,31 @@ import DateInput from '../../../business/Inputs/DateInput/DateInput.tsx';
 import SelectInput from '../../../business/Inputs/SelectInput/SelectInput.tsx';
 import Button, { ButtonType } from '../../../business/Button/Button.tsx';
 
+type Steps = 1|2|3;
+
+const STEP_1_FIELDS: ReservationField[] = [
+    ReservationField.CLIENTS_AMMOUNT,
+    ReservationField.DATE,
+    ReservationField.TIME
+];
+
+const STEP_2_FIELDS: ReservationField[] = [
+    ReservationField.NAME,
+    ReservationField.EMAIL,
+    ReservationField.PHONE
+];
+
 const ReserveForm: React.FC = () => {
-    const { data, errors, updateValue, validateAll } = useReservation();
+    const { data, errors, updateValue, validate } = useReservation();
+    const [step, setStep] = useState<Steps>(1);
 
     const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        if (validateAll()) {
+        if (validate(step === 1 ? STEP_1_FIELDS : STEP_2_FIELDS)) {
+            setStep(2);
             console.log('a');
         }
-    }, [validateAll]);
+    }, [validate, step]);
 
     return (
         <form className='reserve-form' onSubmit={onSubmit}>
