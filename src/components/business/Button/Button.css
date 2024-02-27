@@ -84,6 +84,8 @@ button.link {
     padding: 0;
     background-color: transparent;
     color: var(--accent-color);
+    display: flex;
+    gap: 0.5rem;
 }
 
 button.link::after {

@@ -45,7 +45,7 @@ const SelectInput: React.FC<Props> = ({
           onBlur={handleSelect}
         >
           {availableTimes.map(at => <option key={at} value={at}>{at}</option>)}
-          <option selected disabled hidden value={''}>mm:ss</option>
+          <option disabled hidden value={''}>mm:ss</option>
         </select>
         <button onClick={handlePickerClick}>
           <ChevronDown />

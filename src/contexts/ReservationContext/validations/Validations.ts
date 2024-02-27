@@ -1,10 +1,10 @@
 import { ValueTypes } from "../../../components/business/Inputs/commonTypes.ts";
 import { ReservationField } from "../ReservationContext.tsx";
-import validateMobileNumber from "react-mobile-validator";
+import {phone as validatePhoneNumber} from 'phone';
 
 const PHONE_MSG = 'Please enter a correct phone number.'
 const phone = (value: string, currMsg: string): string => (
-    validateMobileNumber(value)
+    validatePhoneNumber(value).isValid
         ? currMsg
         : PHONE_MSG
 );
@@ -12,7 +12,7 @@ const phone = (value: string, currMsg: string): string => (
 const EMAIL_REGEXP = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const EMAIL_MSG = 'Please enter a correct email.'
 const email = (value: string, currMsg: string): string => (
-    !value.match(EMAIL_REGEXP)
+    value.match(EMAIL_REGEXP)
         ? currMsg
         : EMAIL_MSG
 );
