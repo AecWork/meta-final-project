@@ -27,10 +27,7 @@ const DateInput: React.FC<InputProps<string>> = ({
     <div className={`field-wrapper${error ? ' errored' : ''}`}>
       {!label ? null : <label className='text-XL'>{ label }</label>}
       <div className='input-wrapper'>
-        <button
-          className='subtract'
-          onClick={handlePickerClick}
-        >
+        <button onClick={handlePickerClick}>
           <Calendar />
         </button>
         <input
@@ -41,10 +38,7 @@ const DateInput: React.FC<InputProps<string>> = ({
           onBlur={handleDateClick}
           ref={ref}
         />
-        <button
-          className='subtract'
-          onClick={handlePickerClick}
-        >
+        <button onClick={handlePickerClick}>
           <ChevronDown />
         </button>
       </div>

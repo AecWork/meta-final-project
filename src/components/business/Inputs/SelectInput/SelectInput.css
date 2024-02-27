@@ -1,0 +1,15 @@
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.defaultOption, select.default {
+    color: rgba(35, 35, 35, 0.5);
+}
+
+select > option {
+    color: var(--LL-black);
+}
+

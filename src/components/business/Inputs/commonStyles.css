@@ -17,7 +17,7 @@
     height: 106px;
 }
 
-input {
+input, select {
     -webkit-appearance: textfield;
     -moz-appearance: textfield;
     appearance: textfield;
@@ -62,7 +62,7 @@ input[type=date].has-value{
     aspect-ratio: 1;
 }
 
-.input-wrapper button,  input {
+.input-wrapper button,  input, select {
     background-color: rgba(35,35,35, 0);
     transition: background-color 1s var(--easing);
 }
@@ -72,7 +72,7 @@ input[type=date].has-value{
     background-color: rgba(35,35,35, 0.05);
 }
 
-.field-wrapper.errored input, .field-wrapper.errored > .input-wrapper button {
+.field-wrapper.errored input, .field-wrapper.errored > .input-wrapper button, .field-wrapper.errored select {
     background-color: rgba(255,101,71, 0.3);
 }
 
