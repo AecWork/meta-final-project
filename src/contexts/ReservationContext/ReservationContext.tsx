@@ -47,16 +47,19 @@ const EMPTY_ERRORS: ReservationDataErrors = {
 }
 
 type UpdateFunc = (value: number | string, field: ReservationField) => void
+type ValidateFunc = () => boolean
 
 interface IReservationContext {
     data: ReservationData
     errors: ReservationDataErrors
+    validateAll: ValidateFunc
     updateValue: UpdateFunc
 }
 
 const ReservationContext = React.createContext<IReservationContext>({
     data: EMPTY_RESERVATION,
     errors: EMPTY_ERRORS,
+    validateAll: () => true,
     updateValue: () => {}
 });
 
@@ -69,11 +72,21 @@ export const ReservationContextProvider = ({ children }) => {
         setErrors(prev => ({...prev, [field]: validateField(field, value)}));
     }, []);
 
+    const validateAll = React.useCallback<ValidateFunc>(() => {
+        Object.keys(reservationData).forEach(field => {
+            setErrors(prev => ({...prev, [field]: validateField(field as ReservationField, reservationData[field])}));
+        })
+
+        if (errors === EMPTY_ERRORS) return true;
+        return false;
+    }, [errors, reservationData]);
+
     return (
         <ReservationContext.Provider
             value={{
                 data: {...reservationData},
                 errors: {...errors},
+                validateAll,
                 updateValue
             }}
         >

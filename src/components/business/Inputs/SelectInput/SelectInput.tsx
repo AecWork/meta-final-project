@@ -27,7 +27,6 @@ const SelectInput: React.FC<Props> = ({
 
   const handleSelect = useCallback((e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
-    console.log(e.target.value);
     onChange?.(e.target.value);
   }, [onChange]);
 

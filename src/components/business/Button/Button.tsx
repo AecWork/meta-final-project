@@ -12,10 +12,11 @@ export enum ButtonType {
 interface IProps {
   children?: string | JSX.Element
   type?: ButtonType
+  submitForm?: boolean
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.DEFAULT, onClick}) => {
+const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.DEFAULT, onClick, submitForm}) => {
   const { theme } = useTheme();
 
   const buttonTypeStyle: string = React.useMemo(() => {
@@ -29,12 +30,13 @@ const Button: React.FC<IProps> = ({children = 'Button', type = ButtonType.DEFAUL
 
   const button: JSX.Element = React.useMemo(() =>
     <button
+      type={`${submitForm ? 'submit' : 'button'}`}
       className={`${buttonTypeStyle}${typeof(children) === 'object' ? ' icon' : ''} text-Base`}
       onClick={onClick}
     >
       {children || "Button"}
     </button>
-  , [children, buttonTypeStyle, onClick]);
+  , [submitForm, buttonTypeStyle, children, onClick]);
 
   return (
     <div className={`${type === ButtonType.LINK ? '' : 'container '}${theme}`}>

@@ -122,6 +122,8 @@ button.default {
 
 button.CTA.big {
     width: 100%;
+    font-size: 1.6875rem;
+    padding: 2rem calc(1rem);
 }
 
 .container:hover button {

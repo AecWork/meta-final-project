@@ -11,5 +11,6 @@ select {
 
 select > option {
     color: var(--LL-black);
+    cursor: pointer;
 }
 

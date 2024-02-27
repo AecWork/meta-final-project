@@ -1,15 +1,23 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import './ReserveForm.css'
 import { ReservationField, useReservation } from '../../../../contexts/ReservationContext/ReservationContext.tsx'
 import NumberInput from '../../../business/Inputs/NumberInput/NumberInput.tsx';
 import DateInput from '../../../business/Inputs/DateInput/DateInput.tsx';
 import SelectInput from '../../../business/Inputs/SelectInput/SelectInput.tsx';
+import Button, { ButtonType } from '../../../business/Button/Button.tsx';
 
 const ReserveForm: React.FC = () => {
-    const { data, errors, updateValue } = useReservation();
+    const { data, errors, updateValue, validateAll } = useReservation();
+
+    const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+        if (validateAll()) {
+            console.log('a');
+        }
+    }, [validateAll]);
 
     return (
-        <form className='reserve-form'>
+        <form className='reserve-form' onSubmit={onSubmit}>
             <NumberInput
                 label='How many will you be?'
                 caption='25 max'
@@ -30,6 +38,7 @@ const ReserveForm: React.FC = () => {
                 error={errors[ReservationField.TIME]}
                 onChange={value => updateValue(value, ReservationField.TIME)}
             />
+            <Button submitForm type={ButtonType.BIG_CTA}>Next step</Button>
         </form>
     )
 }
