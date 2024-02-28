@@ -15,3 +15,18 @@
     height: 100%;
     min-height: 1rem;
 }
+
+@media (max-width: 1200px) {
+    .progress-bar {
+        flex-direction: row;
+        height: fit-content;
+        width: 100%;
+    }
+
+    .progress-bar > div {
+        width: 100%;
+        height: 1px;
+        min-height: 1px;
+        min-width: 1rem;
+    }
+}

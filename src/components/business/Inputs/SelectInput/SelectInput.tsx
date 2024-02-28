@@ -32,7 +32,7 @@ const SelectInput: React.FC<Props> = ({
 
   return (
     <div className={`field-wrapper${error ? ' errored' : ''}`}>
-      <label className='text-XL'>{ label }</label>
+      <label>{ label }</label>
       <div className='input-wrapper'>
         <button onClick={handlePickerClick}>
           <Clock />

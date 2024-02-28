@@ -3,6 +3,8 @@
     flex-direction: column;
     gap: 0.5rem;
     align-items: center;
+    text-align: center;
+    align-self: flex-start;
 }
 
 .step-wrapper > div {
@@ -16,4 +18,11 @@
 .step-wrapper > div.complete {
     color: var(--LL-main);
     background-color: var(--LL-black);
+}
+
+@media (max-width: 768px) {
+    .step-wrapper > span {
+        font-size: 0.75rem;
+        line-height: 1.2;
+    }
 }

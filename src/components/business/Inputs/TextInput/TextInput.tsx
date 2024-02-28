@@ -30,7 +30,7 @@ const TextInput: React.FC<Props> = ({
 
   return (
     <div className={`field-wrapper${error ? ' errored' : ''}`}>
-    {!label ? null : <label className='text-XL'>{ label }</label>}
+    {!label ? null : <label>{ label }</label>}
     <div className='input-wrapper'>
       <input
         type={type}

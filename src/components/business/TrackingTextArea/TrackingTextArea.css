@@ -30,3 +30,9 @@
 .text-area-wrapper > ul > li .title{
     color: rgba(35,35,35,0.7);
 }
+
+@media (max-width: 1200px) {
+    .text-area-wrapper {
+        width: 100%;
+    }
+}

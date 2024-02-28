@@ -99,7 +99,7 @@ const ReserveForm: React.FC = () => {
                 </div>
                 <div className='last'>
                     <span className='uppercase display'>See you soon</span>
-                    <span className='msg text-L'>An email has been sent with all the reservation’s details</span>
+                    <span className='msg'>An email has been sent with all the reservation’s details</span>
                 </div>
             </section>
             <Button submitForm type={ButtonType.BIG_CTA}>{buttonText}</Button>

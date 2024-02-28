@@ -11,7 +11,7 @@ import TrackingTextArea, { TextAreaField } from '../../business/TrackingTextArea
 const STEPS: StepProps[] = [
   {
       step: 1,
-      stepName: 'Time & people',
+      stepName: 'Time, people',
       complete: false
   },
   {

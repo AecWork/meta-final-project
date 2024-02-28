@@ -1,5 +1,4 @@
 .reserve-form {
-    width: 50vw;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -40,4 +39,21 @@
 
 .last > .msg {
     color: rgba(35,35,35,0.7);
+    font-size: 1.3125rem;
+}
+
+@media (max-width: 768px) {
+    .reserve-form {
+        gap: 1rem;
+    }
+
+    .last > .display {
+        font-family: 'Rosalia';
+        font-size: 5rem;
+        line-height: 1.2;
+    }
+
+    .last > .msg {
+        font-size: 1rem;
+    }
 }

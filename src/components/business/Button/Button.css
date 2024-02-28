@@ -131,3 +131,10 @@ button.CTA.big {
 .container:hover button {
     transform: translate(var(--extrude-distance), var(--extrude-distance));
 }
+
+@media (max-width: 768px) {
+    button.CTA.big {
+        font-size: 1.3125rem;
+        padding: 1rem calc(1rem);
+    }
+}

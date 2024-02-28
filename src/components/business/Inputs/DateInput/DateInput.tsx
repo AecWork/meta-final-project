@@ -2,6 +2,7 @@ import React, { useCallback, useRef } from 'react'
 import { InputProps } from '../commonTypes'
 import {ReactComponent as ChevronDown} from '../../../../assets/icons/chevronDown.svg';
 import {ReactComponent as Calendar} from '../../../../assets/icons/calendar.svg';
+import useMediaQuery from '../../../../hooks/useMediaQuery/useMediaQuery.ts';
 
 const DateInput: React.FC<InputProps<string>> = ({
   label,
@@ -11,6 +12,7 @@ const DateInput: React.FC<InputProps<string>> = ({
   onChange
 }) => {
   const ref = useRef<HTMLInputElement>(null);
+  const { isMobile } = useMediaQuery();
 
   const handlePickerClick = useCallback((e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -25,7 +27,7 @@ const DateInput: React.FC<InputProps<string>> = ({
 
   return (
     <div className={`field-wrapper${error ? ' errored' : ''}`}>
-      {!label ? null : <label className='text-XL'>{ label }</label>}
+      {!label ? null : <label>{ label }</label>}
       <div className='input-wrapper'>
         <button onClick={handlePickerClick}>
           <Calendar />
@@ -38,9 +40,11 @@ const DateInput: React.FC<InputProps<string>> = ({
           onBlur={handleDateClick}
           ref={ref}
         />
-        <button onClick={handlePickerClick}>
-          <ChevronDown />
-        </button>
+        { !isMobile && (
+          <button onClick={handlePickerClick}>
+            <ChevronDown />
+          </button>
+        )}
       </div>
       <span>{ error || 'no error' }</span>
     </div>

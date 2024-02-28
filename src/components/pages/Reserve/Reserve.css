@@ -17,3 +17,25 @@
     grid-template-columns: 1fr 2fr 1fr;
     gap: var(--side-margin);
 }
+
+@media (max-width: 1200px) {
+    .reservation-page > section {
+        grid-template-columns: unset;
+        grid-template-rows: fit-content 2fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .reservation-page {
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .reservation-page > section {
+        gap: 2rem;
+    }
+
+    .reservation-page > h5 {
+        padding-right: 2.5rem;
+    }
+}
