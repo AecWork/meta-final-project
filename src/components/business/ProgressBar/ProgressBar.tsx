@@ -11,8 +11,8 @@ const ProgressBar: React.FC<Props> = ({ steps }) => {
     <ul className='progress-bar'>
       { steps.map((step, index) => (
         <>
-          <Step {...step} />
-          { index < steps.length - 1 ? <div /> : null }
+          <Step key={step.step} {...step} />
+          { index < steps.length - 1 ? <div key={(step.step || 0) + 0.5}/> : null }
         </>
       )) }
     </ul>

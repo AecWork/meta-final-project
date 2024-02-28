@@ -15,5 +15,5 @@
 .reservation-page > section {
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    gap: 2rem;
+    gap: var(--side-margin);
 }

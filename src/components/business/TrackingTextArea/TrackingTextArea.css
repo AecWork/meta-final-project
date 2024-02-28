@@ -1,0 +1,32 @@
+.text-area-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    height: fit-content;
+    width: fit-content;
+    padding: 1rem;
+
+    justify-self: flex-end;
+
+    border: 1px solid var(--LL-black);
+}
+
+.text-area-wrapper > .header {
+    font-family: 'Rosalia';
+}
+
+.text-area-wrapper > ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.text-area-wrapper > ul > li {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.text-area-wrapper > ul > li .title{
+    color: rgba(35,35,35,0.7);
+}

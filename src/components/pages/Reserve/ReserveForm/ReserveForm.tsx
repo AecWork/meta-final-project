@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import { useModal } from '../../../../contexts/ModalContext.tsx';
 import { ReservationField, useReservation } from '../../../../contexts/ReservationContext/ReservationContext.tsx';
 import Button, { ButtonType } from '../../../business/Button/Button.tsx';
@@ -21,7 +21,7 @@ const STEP_2_FIELDS: ReservationField[] = [
 ];
 
 const ReserveForm: React.FC = () => {
-    const { data, errors, updateValue, validate, currentStep, nextStep } = useReservation();
+    const { data, errors, updateValue, validate, currentStep, nextStep, prevStep, startOver } = useReservation();
     const { closeModal } = useModal();
 
     const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
@@ -32,13 +32,27 @@ const ReserveForm: React.FC = () => {
             }
         } else {
             closeModal();
+            setTimeout(() => {
+                startOver();
+                prevStep();
+                prevStep();
+            }, 1000);
         }
 
-    }, [validate, closeModal, currentStep, nextStep]);
+    }, [validate, closeModal, currentStep, nextStep, prevStep, startOver]);
+
+    const buttonText = useMemo(() => {
+        switch(currentStep) {
+            case 1: return 'Next step';
+            case 2: return 'Confirm';
+            case 3: return 'Back';
+            default: return '';
+        }
+    }, [currentStep])
 
     return (
         <form className='reserve-form' onSubmit={onSubmit}>
-            <section className={`${currentStep === 2 ? 'step-2' : ''}`}>
+            <section className={`step-${currentStep}`}>
                 <div>
                     <NumberInput
                         label='How many will you be?*'
@@ -83,8 +97,12 @@ const ReserveForm: React.FC = () => {
                         onChange={value => updateValue(value, ReservationField.PHONE)}
                     />
                 </div>
+                <div className='last'>
+                    <span className='uppercase display'>See you soon</span>
+                    <span className='msg text-L'>An email has been sent with all the reservation’s details</span>
+                </div>
             </section>
-            <Button submitForm type={ButtonType.BIG_CTA}>{currentStep === 1 ? 'Next step' : 'Confirm'}</Button>
+            <Button submitForm type={ButtonType.BIG_CTA}>{buttonText}</Button>
         </form>
     )
 }

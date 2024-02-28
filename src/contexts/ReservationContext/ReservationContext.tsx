@@ -19,7 +19,7 @@ interface ReservationData {
     [ReservationField.PHONE]: string
 }
 
-interface ReservationDataErrors {
+export interface ReservationDataErrors {
     [ReservationField.CLIENTS_AMMOUNT]: string,
     [ReservationField.DATE]: string,
     [ReservationField.TIME]: string,
@@ -57,6 +57,7 @@ interface IReservationContext {
     currentStep: number
     nextStep: () => void
     prevStep: () => void
+    startOver: () => void
 }
 
 const ReservationContext = React.createContext<IReservationContext>({
@@ -66,7 +67,8 @@ const ReservationContext = React.createContext<IReservationContext>({
     updateValue: () => {},
     currentStep: 1,
     nextStep: () => {},
-    prevStep: () => {}
+    prevStep: () => {},
+    startOver: () => {}
 });
 
 export const ReservationContextProvider = ({ children }) => {
@@ -99,7 +101,8 @@ export const ReservationContextProvider = ({ children }) => {
                 updateValue,
                 currentStep,
                 nextStep: () => setCurrentStep(prev => prev + 1),
-                prevStep: () => setCurrentStep(prev => prev - 1)
+                prevStep: () => setCurrentStep(prev => prev - 1),
+                startOver: () => setReservationData(EMPTY_RESERVATION)
             }}
         >
             { children }
