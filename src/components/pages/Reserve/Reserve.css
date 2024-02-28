@@ -36,6 +36,12 @@
     }
 
     .reservation-page > h5 {
-        padding-right: 2.5rem;
+        padding-right: 10rem;
+    }
+
+    .back-button {
+        left: unset;
+        top: 0.5rem;
+        right: 4rem;
     }
 }
