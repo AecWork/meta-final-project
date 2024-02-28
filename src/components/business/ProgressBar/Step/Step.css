@@ -1,0 +1,19 @@
+.step-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.step-wrapper > div {
+    width: fit-content;
+    padding: 0 0.5rem;
+    text-align: center;
+    border: 1px solid var(--LL-black);
+    transition: background-color 1s var(--easing), color 1s var(--easing);
+}
+
+.step-wrapper > div.complete {
+    color: var(--LL-main);
+    background-color: var(--LL-black);
+}

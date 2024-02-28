@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from 'react-dom';
-import Modal from "../components/business/Modals/Modal.tsx";
 import { useNavigate } from "react-router-dom";
-import { Section } from "../data/constants/constants.ts";
+import Nav from "../components/business/Header/Nav/Nav.tsx";
+import Modal from "../components/business/Modals/Modal.tsx";
 import About from "../components/pages/About/About.tsx";
 import Menu from "../components/pages/Menu/Menu.tsx";
 import Reserve from "../components/pages/Reserve/Reserve.tsx";
-import Nav from "../components/business/Header/Nav/Nav.tsx";
+import { Section } from "../data/constants/constants.ts";
+import { ReservationContextProvider } from "./ReservationContext/ReservationContext.tsx";
 
 export enum ModalType {
     SIDE_BAR = 'side-bar',
@@ -92,13 +93,16 @@ export const ModalContextProvider = ({ children }) => {
             }}
         >
             { children }
-            { overlayElement
-                ? ReactDOM.createPortal(
-                    modal,
+            <ReservationContextProvider>
+                {
                     overlayElement
-                )
-                : null
-            }
+                        ? ReactDOM.createPortal(
+                            modal,
+                            overlayElement
+                        )
+                        : null
+                }
+            </ReservationContextProvider>
         </ModalContext.Provider>
     );
 };

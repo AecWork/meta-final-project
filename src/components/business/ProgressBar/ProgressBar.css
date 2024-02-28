@@ -1,0 +1,17 @@
+.progress-bar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: fit-content;
+    align-self: flex-start;
+}
+
+.progress-bar > div {
+    background-color: var(--LL-black);
+    width: 1px;
+    height: 100%;
+    min-height: 1rem;
+}

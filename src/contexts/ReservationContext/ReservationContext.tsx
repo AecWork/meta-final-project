@@ -54,18 +54,25 @@ interface IReservationContext {
     errors: ReservationDataErrors
     validate: ValidateFunc
     updateValue: UpdateFunc
+    currentStep: number
+    nextStep: () => void
+    prevStep: () => void
 }
 
 const ReservationContext = React.createContext<IReservationContext>({
     data: EMPTY_RESERVATION,
     errors: EMPTY_ERRORS,
     validate: () => true,
-    updateValue: () => {}
+    updateValue: () => {},
+    currentStep: 1,
+    nextStep: () => {},
+    prevStep: () => {}
 });
 
 export const ReservationContextProvider = ({ children }) => {
     const [reservationData, setReservationData] = React.useState<ReservationData>(EMPTY_RESERVATION);
     const [errors, setErrors] = React.useState<ReservationDataErrors>(EMPTY_ERRORS);
+    const [currentStep, setCurrentStep] = React.useState<number>(1);
 
     const updateValue = React.useCallback<UpdateFunc>((value, field) => {
         setReservationData(prev => ({...prev, [field]: value}));
@@ -89,7 +96,10 @@ export const ReservationContextProvider = ({ children }) => {
                 data: {...reservationData},
                 errors: {...errors},
                 validate,
-                updateValue
+                updateValue,
+                currentStep,
+                nextStep: () => setCurrentStep(prev => prev + 1),
+                prevStep: () => setCurrentStep(prev => prev - 1)
             }}
         >
             { children }
